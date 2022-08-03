@@ -1,5 +1,7 @@
+//this file's job is to bootstrap the React Code
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { MainView } from './components/main-view/main-view';
 
 // Import statement to indicate bundling `./index.scss`
 import './index.scss';
@@ -8,9 +10,7 @@ import './index.scss';
 class MyFlixApplication extends React.Component {
   render() {
     return (
-      <div className="my-flix">
-        <div>Good morning</div>
-      </div>
+      <MainView />
     );
   }
 }
