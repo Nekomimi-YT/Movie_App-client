@@ -26,7 +26,7 @@ export function LoginView(props) {
         <button type="submit" onClick={handleSubmit}>Submit</button>
       </form>
       <p>New to myFlix?</p>
-      <button type="button">Register</button>
+      <button type="button" /*onClick={() => Change to RegistrationView*/>Register</button>
     </div>
   );
 }
