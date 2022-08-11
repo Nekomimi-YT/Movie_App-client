@@ -28,7 +28,7 @@ export class MovieView extends React.Component {
               </Accordion.Item>  
             </Accordion>
             </div>
-            <Button variant="link" onClick={() => { onBackClick(null); }}>Back</Button>
+            <Button variant="link" className="closeCard" onClick={() => { onBackClick(null); }}>{'<<'}Back</Button>
           </Card.Body>
         </Card>
     );
