@@ -8,6 +8,7 @@ import Card from 'react-bootstrap/Card';
 export class MovieCard extends React.Component {
   render() {
     const { movie, onMovieClick } = this.props;
+    const shortMD = movie.Description.slice(0, 100);
 
     return (
       <Card>
@@ -16,6 +17,7 @@ export class MovieCard extends React.Component {
           <Card.Title>{movie.Title}</Card.Title>
           <Card.Text>{movie.ReleaseYear}</Card.Text>
           <Card.Text>{movie.Genre.Name}</Card.Text>
+          <Card.Text>{shortMD}...</Card.Text>
           <Button onClick={() => onMovieClick(movie)} variant="link">Open</Button>
         </Card.Body>
       </Card>
