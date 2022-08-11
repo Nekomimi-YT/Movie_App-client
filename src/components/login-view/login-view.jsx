@@ -27,14 +27,12 @@ export function LoginView(props) {
           <Form.Label>Password:</Form.Label>
           <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
         </Form.Group>
-
         <Button variant="primary" type="submit" onClick={handleSubmit}>
           Submit
         </Button>
       </Form>
-
-      <p>New to myFlix?</p>
-      <Button variant="secondary" type="button" /*onClick={() => Change to RegistrationView*/>Register</Button>
+        <p>New to myFlix?</p>
+        <Button variant="primary" type="button" /*onClick={() => Change to RegistrationView*/>Register</Button>
     </div>
   );
 }
