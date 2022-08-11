@@ -1,8 +1,7 @@
 // movie_app-client/src/components/login-view/login-view.jsx
 
 import React, { useState } from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import { Form, Button } from 'react-bootstrap';
 import './login-view.scss';
 
 export function LoginView(props) {
@@ -28,12 +27,12 @@ export function LoginView(props) {
           <Form.Label>Password:</Form.Label>
           <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
         </Form.Group>
-        <Button variant="primary" size="sm" type="submit" onClick={handleSubmit}>
+        <Button variant="primary" size="md" type="submit" onClick={handleSubmit}>
           Submit
         </Button>
       </Form>
-        <p>New to myFlix?</p>
-        <Button variant="primary" size="sm" type="button" /*onClick={() => Change to RegistrationView*/>Register</Button>
+          <p>New to myFlix?</p>
+          <Button variant="link" type="button" /*onClick={() => Change to RegistrationView*/>Register</Button>
     </div>
   );
 }
