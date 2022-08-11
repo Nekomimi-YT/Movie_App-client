@@ -16,12 +16,12 @@ export function LoginView(props) {
     props.onLoggedIn(username);
   };
 
-  const handleRegistrationView = (e) => {
+  const gotoRegistrationView = (e) => {
     console.log('register new user');
-    // Send a POST request to the server, then reroute to the login page again
-    return (
-      <RegistrationView />
-    )
+    // Reroute to registration page
+    //return (
+    //  <RegistrationView />
+    //)
   };
 
   return (
@@ -41,7 +41,7 @@ export function LoginView(props) {
         </Button>
       </Form>
           <p>New to myFlix?{' '} 
-          <Button variant="secondary" type="button" size="sm" onClick={handleRegistrationView}>Register</Button></p>
+          <Button variant="secondary" type="button" size="sm" onClick={gotoRegistrationView}>Register</Button></p>
     </div>
   );
 }
