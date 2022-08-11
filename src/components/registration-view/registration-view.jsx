@@ -16,6 +16,14 @@ export function RegistrationView(props) {
     /* then redirects user to login page */
   };
 
+  const gotoLoginView = (e) => {
+    console.log('register new user');
+    // Reroute to login page
+    //return (
+    //  <LoginView />
+    //)
+  };
+
   return (
     <div>
       <Form>
@@ -39,12 +47,12 @@ export function RegistrationView(props) {
           <Form.Control type="date" onChange={e => setBirthday(e.target.value)} />
         </Form.Group>
 
-        <Button variant="primary" type="submit" onClick={handleSubmit}>
+        <Button variant="secondary" size="sm" type="submit" onClick={handleSubmit}>
           Submit
         </Button>
       </Form>
-      <p>Already a user?</p>
-      <Button variant="secondary" type="button" /*onClick={() => Change to LoginView*/>Login</Button>
+      <p>Already a user?{' '}
+      <Button variant="secondary" type="button" size="sm" onClick={gotoLoginView}>Login</Button></p>
     </div>
   );
 }
