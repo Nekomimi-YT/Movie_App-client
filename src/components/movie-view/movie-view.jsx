@@ -2,6 +2,7 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Accordion from 'react-bootstrap/Accordion';
+import './movie-view.scss';
 
 export class MovieView extends React.Component {
 
@@ -17,6 +18,7 @@ export class MovieView extends React.Component {
             <Card.Text>{movie.Description}</Card.Text>
             <Card.Text>Critic Rating: {movie.CriticRating}</Card.Text>
             <Card.Text>Audience Rating: {movie.AudienceRating}</Card.Text>
+            <div>
             <Accordion flush>
               <Accordion.Item eventKey="0">
                 <Accordion.Header>Genre: {movie.Genre.Name}</Accordion.Header>
@@ -27,6 +29,7 @@ export class MovieView extends React.Component {
                   <Accordion.Body>{movie.Director.Bio}</Accordion.Body>
               </Accordion.Item>  
             </Accordion>
+            </div>
             <Button variant="link" onClick={() => { onBackClick(null); }}>Back</Button>
           </Card.Body>
         </Card>
