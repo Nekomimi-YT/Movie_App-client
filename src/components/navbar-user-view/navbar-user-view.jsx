@@ -12,6 +12,7 @@ export function NavbarUserView() {
           <NavDropdown className="navbar-nav" title={<span class="text">My Profile</span>} id="basic-nav-dropdown">
               <NavDropdown.Item href="#">Update Profile</NavDropdown.Item>
               <NavDropdown.Item href="#">Edit Favorite Movies</NavDropdown.Item>
+              <NavDropdown.Item href="#">Logout</NavDropdown.Item>
             </NavDropdown>
         </Navbar.Collapse>
       </Container>
