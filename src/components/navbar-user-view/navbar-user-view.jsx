@@ -4,12 +4,12 @@ import { Container, Navbar, NavDropdown } from 'react-bootstrap';
 export function NavbarUserView() {
 
   return (
-    <Navbar bg="dark" fixed="top">
+    <Navbar variant="dark" bg="dark" fixed="top" expand="md">
       <Container>
-        <Navbar.Brand href="#home"><h1>myFlix Movies</h1></Navbar.Brand>
-        <Navbar.Toggle />
+        <Navbar.Brand href="#"><h1>myFlix Movies</h1></Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse className="justify-content-end">
-          <NavDropdown title= {<span className="text">My Profile</span>} id="nav-dropdown">
+          <NavDropdown className="navbar-nav" title={<span class="text">My Profile</span>} id="basic-nav-dropdown">
               <NavDropdown.Item href="#">Update Profile</NavDropdown.Item>
               <NavDropdown.Item href="#">Edit Favorite Movies</NavDropdown.Item>
             </NavDropdown>
