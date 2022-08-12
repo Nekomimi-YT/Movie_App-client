@@ -8,7 +8,7 @@ export class MovieView extends React.Component {
     const { movie, onBackClick } = this.props;
 
     return ( 
-        <Card style={{ width: '100%' }}>
+        <Card className= "m-2 box-shadow" style={{ width: '100%' }}>
           <Card.Img variant="top" src={movie.ImagePath} />
           <Card.Body>
             <Card.Title>{movie.Title} {movie.ReleaseYear}</Card.Title>
