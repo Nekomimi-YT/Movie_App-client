@@ -11,7 +11,7 @@ export class MovieCard extends React.Component {
     const shortMD = movie.Description.slice(0, 100);
 
     return (
-      <Card>
+      <Card className="d-flex align-self-stretch m-2 box-shadow">
         <Card.Img variant="top" src={movie.ImagePath} />
         <Card.Body>
           <Card.Title>{movie.Title}</Card.Title>
