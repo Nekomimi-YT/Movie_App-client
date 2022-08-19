@@ -12,7 +12,7 @@ export class MovieCard extends React.Component {
 
     return (
       <Card className="d-flex align-self-stretch m-2 box-shadow">
-        <Card.Img variant="top" src={movie.ImagePath} />
+        <Card.Img variant="top" src={movie.ImagePath} crossOrigin="anonymous"/>
         <Card.Body>
           <Card.Title>{movie.Title}</Card.Title>
           <Card.Text>{movie.ReleaseYear}</Card.Text>
