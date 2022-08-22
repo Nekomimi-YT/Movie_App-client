@@ -9,7 +9,7 @@ export class MovieView extends React.Component {
 
     return ( 
         <Card className= "m-2 box-shadow" style={{ width: '100%' }}>
-          <Card.Img variant="top" src={movie.ImagePath} />
+          <Card.Img variant="top" src={movie.ImagePath} crossOrigin="anonymous"/>
           <Card.Body>
             <Card.Title>{movie.Title} {movie.ReleaseYear}</Card.Title>
             <Card.Text>Starring: {movie.Actors}</Card.Text>
