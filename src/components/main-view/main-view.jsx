@@ -35,7 +35,7 @@ componentDidMount() {
 }
 
 getMovies(token) {
-  axios.get('Yhttps://myflix-movieapp-bylisa.herokuapp.com/movies', {
+  axios.get('https://myflix-movieapp-bylisa.herokuapp.com/movies', {
     headers: { Authorization: `Bearer ${token}` }
   })
   .then(response => {
