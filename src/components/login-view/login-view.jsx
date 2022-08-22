@@ -1,6 +1,7 @@
 // movie_app-client/src/components/login-view/login-view.jsx
 
 import React, { useState } from 'react';
+import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
 import {RegistrationView} from '../registration-view/registration-view'
 import './login-view.scss';
