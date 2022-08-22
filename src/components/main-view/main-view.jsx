@@ -38,16 +38,14 @@ componentDidMount() {
 
 getMovies(token) {
   axios.get('Yhttps://myflix-movieapp-bylisa.herokuapp.com/movies', {
-    headers: { Authorization: `Bearer ${token}`}
+    headers: { Authorization: `Bearer ${token}` }
   })
   .then(response => {
     this.setState({
       movies: response.data
     });
   })
-  .catch(function (error) {
-    console.log(error);
-  });
+  .catch(error => console.log(error));
 }
 
 /*When a movie is clicked, this function is invoked and updates the state of the `selectedMovie` *property to that movie*/
