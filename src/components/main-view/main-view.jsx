@@ -62,42 +62,48 @@ onLoggedIn(authData) {
 render() {
   const { movies, user } = this.state;
 
-  /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
-  if (!user) return ( 
-    <div>
-      <NavbarView />
-      <Row>
-        <Col>
-          <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
-        </Col>
-      </Row>
-    </div>
-  ); 
-
   //if (register button is clicked) return <RegistrationView />
 
   
-  if (movies.length === 0) return <div className="main-view" />;
-
+  
+  /*need to move NavbarUserView  to only logged in route? and move row className?*/
   return (
     <Router>
-      <div>
-        <NavbarUserView />
+      <NavbarUserView /> 
         <Row className="main-view justify-content-md-center">
           <Route exact path="/" render={() => {
-            return movie.map(m => (
-              <Col md={4} key={m._id}>
+            if (!user) return ( 
+              <div>
+                <NavbarView />
+                  <Col>
+                    <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+                  </Col>
+              </div>
+              );
+            if (movies.length === 0) return <div className="main-view" />;
+            
+            return movies.map(m => (
+              <Col md={3} key={m._id}>
                 <MovieCard movie={m} />
-              </Col>
+             </Col>
             ))
           }} />
+          
+          <Route path="/register" render={() => {
+            return <div>
+              <NavbarView />
+                <Col>
+                  <RegistrationView />
+                </Col>
+              </div>
+          }} />
+          
           <Route path="/movies/:movieId" render={({ match, history }) => {
             return <Col md={8}>
               <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
             </Col>
           }} />
         </Row>
-      </div>
     </Router>
   );
 }}
