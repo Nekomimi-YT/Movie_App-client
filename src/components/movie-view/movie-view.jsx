@@ -17,8 +17,16 @@ export class MovieView extends React.Component {
             <Card.Text>{ movie.Description }</Card.Text>
             <Card.Text>Critic Rating: { movie.CriticRating }</Card.Text>
             <Card.Text>Audience Rating: { movie.AudienceRating }</Card.Text>
-            <Card.Text>Genre: { movie.Genre.Name }</Card.Text>
-            <Card.Text>Director: { movie.Director.Name }</Card.Text>
+            <Card.Text>
+              Genre: <Link to={`/genres/${ movie.Genre.Name }`}>
+              <Button variant="link">{ movie.Genre.Name }</Button>
+              </Link>
+            </Card.Text>
+            <Card.Text>
+              Director: <Link to={`/directors/${movie.Director.Name}`}>
+                <Button variant="link">{ movie.Director.Name }</Button>
+              </Link>
+            </Card.Text>
             <Button variant="link" className="closeCard" onClick={() => { onBackClick(null); }}>{'<<'}Back</Button>
           </Card.Body>
         </Card>
