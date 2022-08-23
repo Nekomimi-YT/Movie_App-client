@@ -23,11 +23,11 @@ export class MovieView extends React.Component {
               </Link>
             </Card.Text>
             <Card.Text>
-              Director: <Link to={`/directors/${movie.Director.Name}`}>
+              Director: <Link to={`/directors/${ movie.Director.Name }`}>
                 <Button variant="link">{ movie.Director.Name }</Button>
               </Link>
             </Card.Text>
-            <Button variant="link" className="closeCard" onClick={() => { onBackClick(null); }}>{'<<'}Back</Button>
+            <Button variant="link" className="closeCard" onClick={() => { onBackClick(); }}>{'<<'}Back</Button>
           </Card.Body>
         </Card>
     );
