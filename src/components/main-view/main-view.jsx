@@ -1,7 +1,7 @@
 // movie_api--client/src/main-view/main-view.jsx
 import React from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { Row, Col } from 'react-bootstrap';
 
 import { LoginView } from '../login-view/login-view';
@@ -64,9 +64,7 @@ render() {
 
   //if (register button is clicked) return <RegistrationView />
 
-  
-  
-  /*need to move NavbarUserView  to only logged in route? and move row className?*/
+  //need to move NavbarUserView to only logged in route? and move row className?
   return (
     <Router>
       <NavbarUserView /> 
@@ -90,6 +88,7 @@ render() {
           }} />
           
           <Route path="/register" render={() => {
+            if (user) return <Redirect to="/" />
             return <div>
               <NavbarView />
                 <Col>
