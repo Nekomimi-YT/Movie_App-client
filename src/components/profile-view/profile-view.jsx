@@ -23,7 +23,6 @@ export class ProfileView extends React.Component {
           <Link to={`/users/${Username}`}>
             <Button variant="secondary" size="sm" type="button">Edit Profile</Button>
           </Link>
-          
           <h4>Warning! Clicking this button will DELETE YOUR PROFILE!</h4>
           <Button variant="warning" size="sm" type="button">Unregister</Button>
         </Card.Body>
