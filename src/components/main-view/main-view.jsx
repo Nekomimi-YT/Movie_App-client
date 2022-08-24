@@ -46,8 +46,6 @@ getMovies(token) {
   .catch(error => console.log(error));
 }
 
-/* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/
-
 onLoggedIn(authData) {
   console.log(authData);
   this.setState({
@@ -97,6 +95,12 @@ render() {
               </div>
           }} />
           
+          <Route path="/users/profile" render={({ history }) => {
+            return <Col md={8}>
+              <ProfileView onBackClick={() => history.goBack()} />
+            </Col>
+          }} />
+
           <Route path="/movies/:movieId" render={({ match, history }) => {
             return <Col md={8}>
               <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
