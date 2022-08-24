@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Container, Navbar, NavDropdown } from 'react-bootstrap';
 
 export class NavbarUserView extends React.Component {
@@ -20,7 +21,9 @@ export class NavbarUserView extends React.Component {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse className="justify-content-end">
           <NavDropdown className="navbar-nav" title={<span class="text">My Profile</span>} id="basic-nav-dropdown">
-              <NavDropdown.Item href="#">Update Profile</NavDropdown.Item>
+              <Link to={'/users/profile'}>
+                <NavDropdown.Item>View Profile</NavDropdown.Item>
+              </Link>
               <NavDropdown.Item href="#">Edit Favorite Movies</NavDropdown.Item>
               <NavDropdown.Item onClick={() => { this.onLoggedOut(); }}>Logout</NavDropdown.Item>
             </NavDropdown>
