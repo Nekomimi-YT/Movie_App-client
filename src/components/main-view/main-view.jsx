@@ -67,7 +67,6 @@ export class MainView extends React.Component {
       <Router>
         <NavbarView />
           <Row className="main-view justify-content-md-center">
-          <Routes>
           <Route exact path="/" render={() => {
              if (!user) return <Col>
               <LoginView onLoggedIn={(authData) => this.onLoggedIn(authData)} />
@@ -136,7 +135,6 @@ export class MainView extends React.Component {
               </Col>
             }
             } />
-            </Routes>
           </Row>
       </Router>
     );
