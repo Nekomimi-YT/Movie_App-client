@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Row, Col, Container, Form, Button } from 'react-bootstrap';
 //import { Link } from 'react-router-dom'
 import './registration-view.scss';
@@ -71,14 +72,6 @@ export function RegistrationView(props) {
     };
   }
 
-  const gotoLoginView = (e) => {
-    console.log('clicked to login instead of register');
-    // Reroute to login page
-    //return (
-    //  <LoginView />
-    //)
-  };
-
   return (
     <div>
       <Form>
@@ -112,7 +105,10 @@ export function RegistrationView(props) {
         </Button>
       </Form>
       <p>Already a user?{' '}
-      <Button variant="secondary" type="button" size="sm" onClick={gotoLoginView}>Login</Button></p>
+        <Link to={'/'}>
+         <Button variant="secondary" type="button" size="sm">Login</Button>
+        </Link>
+      </p>
     </div>
   );
 }
