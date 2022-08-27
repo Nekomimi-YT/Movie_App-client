@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
-import {RegistrationView} from '../registration-view/registration-view'
 import './login-view.scss';
 
 export function LoginView(props) {
@@ -24,14 +24,6 @@ export function LoginView(props) {
     .catch(error => console.log(`no such user: ${error}`))
   };
 
-  const gotoRegistrationView = (e) => {
-    console.log('register new user');
-    // Reroute to registration page
-    //return (
-    //  <RegistrationView />
-    //)
-  };
-
   return (
     <div>
       <Form>
@@ -48,8 +40,11 @@ export function LoginView(props) {
           Submit
         </Button>
       </Form>
-          <p>New to myFlix?{' '} 
-          <Button variant="secondary" type="button" size="sm" onClick={gotoRegistrationView}>Register</Button></p>
+        <p>New to myFlix?{" "} 
+          <Link to={"/register"}>
+            <Button variant="secondary" type="button" size="sm">Register</Button>
+          </Link>
+        </p>
     </div>
   );
 }
