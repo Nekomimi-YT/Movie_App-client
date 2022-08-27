@@ -7,7 +7,6 @@ import { Row, Col } from 'react-bootstrap';
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { ProfileView } from '../profile-view/profile-view';
-import { NavbarView } from '../navbar-view/navbar-view';
 import { NavbarUserView } from '../navbar-user-view/navbar-user-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
@@ -68,10 +67,9 @@ export class MainView extends React.Component {
         <NavbarUserView user = {user} />
           <Row className="main-view justify-content-md-center">
           <Route exact path="/" render={() => {
-             if (!user) return 
-                    <Col>
-                      <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
-                    </Col>
+             if (!user) return <Col>
+             <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+           </Col>
         
               if (movies.length === 0) return <div className="main-view" />;
               
