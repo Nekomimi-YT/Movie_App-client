@@ -18,8 +18,7 @@ export function RegistrationView(props) {
 
   const validate = () => {
     let isReq = true;
-    const passwordRegex = /\d/;
-    const emailRegex = /^(.+)@(.+)$/;
+    const passwordRegex = /\d/i;
 
     if(!username){
       setValues({...values, usernameErr: 'Username Required'});
@@ -34,14 +33,14 @@ export function RegistrationView(props) {
     } else if(password.length < 6){
       setValues({...values, passwordErr: 'Password must be at least 6 characters long'});
       isReq = false;
-    }else if(password !== passwordRegex) {
-      etValues({...values, passwordErr:'Password must contain at least 1 digit'});
+    }else if((passwordRegex.test(password)) == false) {
+      setValues({...values, passwordErr:'Password must contain at least 1 digit'});
       isReq = false;
     }
     if(!email){
       setValues({...values, emailErr: 'Email Required'});
       isReq = false;
-    } else if(email !== emailRegex){
+    } else if(email.indexOf("@") === -1){
       setValues({...values, emailErr: 'Not a valid email'});
       isReq = false;
      }
