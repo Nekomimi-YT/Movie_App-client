@@ -65,20 +65,14 @@ export class MainView extends React.Component {
     //TODO: need to move NavbarUserView to only logged in route? and move row className?
     return (
       <Router>
-        <NavbarView />
+        <NavbarUserView user = {user} />
           <Row className="main-view justify-content-md-center">
           <Route exact path="/" render={() => {
-             if (!user) return <Col>
-              <LoginView onLoggedIn={(authData) => this.onLoggedIn(authData)} />
-            </Col>
-
-               /*<div>
-                <NavbarView /> 
+             if (!user) return 
                     <Col>
                       <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
                     </Col>
-            </div> */
-              
+        
               if (movies.length === 0) return <div className="main-view" />;
               
               return movies.map(m => (
@@ -90,12 +84,9 @@ export class MainView extends React.Component {
 
             <Route path="/register" render={() => {
               if (user) return <Redirect to="/" />
-              return <div>
-                <NavbarView />
-                  <Col>
+              return <Col>
                     <RegistrationView />
                   </Col>
-                </div>
             }} />
             
             <Route path="/users/profile" render={({ history }) => {
