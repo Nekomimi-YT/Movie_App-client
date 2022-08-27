@@ -42,10 +42,8 @@ componentDidUpdate(prevProps) {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse className="justify-content-end">
             <NavDropdown className="navbar-nav" title={<span className="text">My Profile</span>} id="basic-nav-dropdown">
-                <Link to={'/users/profile'}>
-                  <NavDropdown.Item>View Profile</NavDropdown.Item>
-                </Link>
-                <NavDropdown.Item href="#">Edit Favorite Movies</NavDropdown.Item>
+                <NavDropdown.Item><Link to={'/users/profile'}>View Profile</Link></NavDropdown.Item>
+                <NavDropdown.Item>Edit Favorite Movies</NavDropdown.Item>
                 <NavDropdown.Item onClick={() => { this.onLoggedOut(); }}>Logout</NavDropdown.Item>
               </NavDropdown>
           </Navbar.Collapse>
