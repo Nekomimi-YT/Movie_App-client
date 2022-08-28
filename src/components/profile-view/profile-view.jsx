@@ -1,7 +1,7 @@
 // movie_api-client/src/components/profile-view/profile-view.jsx
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Button, Card } from 'react-bootstrap';
 import './profile-view.scss';
@@ -28,9 +28,7 @@ export class ProfileView extends React.Component {
           <Card.Text>Password: *******</Card.Text>
           <Card.Text>Email: { userProfile.Email }</Card.Text>
           <Card.Text>Birthday: { userProfile.Birthday }</Card.Text>
-          <Link to={`/users/${Username}`}>
-            <Button variant="secondary" size="sm" type="button">Edit Profile</Button>
-          </Link>
+          <Button variant="secondary" size="sm" type="button">Edit Profile</Button>
           <h4>Warning! Clicking this button will DELETE YOUR PROFILE!</h4>
           <Button variant="warning" size="sm" type="button">Unregister</Button>
         </Card.Body>
