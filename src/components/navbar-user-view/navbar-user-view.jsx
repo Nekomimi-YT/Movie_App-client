@@ -13,7 +13,6 @@ export class NavbarUserView extends React.Component {
 }
 
 componentDidUpdate(prevProps) {
-  // Typical usage (don't forget to compare props):
   if (this.props.user !== prevProps.user) {
     console.log(this.props.user, prevProps.user);
     this.setState({
@@ -28,7 +27,7 @@ componentDidUpdate(prevProps) {
     this.setState({
       user: null
     });
-    window.open('/', '_self') //location.reload();
+    window.open('/', '_self'); //location.reload();
   }
 
   render () {
@@ -41,7 +40,7 @@ componentDidUpdate(prevProps) {
           <Navbar.Brand href="#"><h1>myFlix Movies</h1></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse className="justify-content-end">
-            <NavDropdown className="navbar-nav" title={<span className="text">My Profile</span>} id="basic-nav-dropdown">
+            <NavDropdown className="navbar-nav" title={<span className="text">Hi, {user}!</span>} id="basic-nav-dropdown">
                 <NavDropdown.Item><Link to={'/users/profile'}>View Profile</Link></NavDropdown.Item>
                 <NavDropdown.Item>Edit Favorite Movies</NavDropdown.Item>
                 <NavDropdown.Item onClick={() => { this.onLoggedOut(); }}>Logout</NavDropdown.Item>
