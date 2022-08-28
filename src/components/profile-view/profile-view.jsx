@@ -17,7 +17,6 @@ export class ProfileView extends React.Component {
 
   render() {
     const { userProfile, onBackClick } = this.props;
-
     return (
       <Card className="d-flex align-self-stretch m-2 box-shadow">
         {/*<Card.Img variant="top" src={ movie.ImagePath } crossOrigin="anonymous"/> POSSIBLE PHOTO ADD HERE*/}
@@ -41,7 +40,7 @@ ProfileView.propTypes = {
   userProfile: PropTypes.shape({
     Username: PropTypes.string.isRequired,
     Email: PropTypes.string.isRequired,
-    Birthday: PropTypes.instanceOf(Date).isRequired
+    Birthday: PropTypes.instanceOf(Date)
   }).isRequired,
   onBackClick: PropTypes.func.isRequired
 };
