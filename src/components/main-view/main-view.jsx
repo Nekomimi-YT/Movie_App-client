@@ -50,8 +50,10 @@ export class MainView extends React.Component {
 
   onLoggedIn(authData) {
     console.log(authData);
+    console.log(authData.user)
     this.setState({
-      user: authData.user.Username
+      user: authData.user.Username,
+      userProfile: authData.user
     });
 
     localStorage.setItem('token', authData.token);
@@ -89,7 +91,7 @@ export class MainView extends React.Component {
             
             <Route path="/users/:username" render={({ history }) => {
               return <Col md={8}>
-                <ProfileView user = { user } onBackClick={() => history.goBack()} />
+                <ProfileView userProfile = { userProfile } onBackClick={() => history.goBack()} />
               </Col>
             }} />
 
