@@ -62,7 +62,7 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { movies, user } = this.state;
+    const { movies, user, userProfile } = this.state;
     //TODO: need to move NavbarUserView to only logged in route? and move row className?
     return (
       <Router>
