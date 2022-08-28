@@ -64,7 +64,7 @@ export class MainView extends React.Component {
     //TODO: need to move NavbarUserView to only logged in route? and move row className?
     return (
       <Router>
-        <NavbarUserView user = {user} />
+        <NavbarUserView user = { user } />
           <Row className="main-view justify-content-md-center">
           <Route exact path="/" render={() => {
              if (!user) return <Col>
@@ -87,9 +87,9 @@ export class MainView extends React.Component {
                   </Col>
             }} />
             
-            <Route path="/users/profile" render={({ history }) => {
+            <Route path="/users/:username" render={({ history }) => {
               return <Col md={8}>
-                <ProfileView onBackClick={() => history.goBack()} />
+                <ProfileView user = { user } onBackClick={() => history.goBack()} />
               </Col>
             }} />
 
