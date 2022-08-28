@@ -7,8 +7,16 @@ import { Button, Card } from 'react-bootstrap';
 import './profile-view.scss';
 
 export class ProfileView extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+        userProfile: this.props.userProfile
+    };
+}
+
   render() {
-    const { user, onBackClick } = this.props;
+    const { userProfile, onBackClick } = this.props;
 
     return (
       <Card className="d-flex align-self-stretch m-2 box-shadow">
@@ -16,10 +24,10 @@ export class ProfileView extends React.Component {
         <Card.Body>
           <Button variant="link" className="closeCard" onClick={() => { onBackClick(); }}>{'<<'}Back</Button>
           <Card.Title>Your myFlix Profile</Card.Title>
-          <Card.Text>Username: { user.Username }</Card.Text>
+          <Card.Text>Username: { userProfile.Username }</Card.Text>
           <Card.Text>Password: *******</Card.Text>
-          <Card.Text>Email: { user.Email }</Card.Text>
-          <Card.Text>Birthday: { user.Birthday }</Card.Text>
+          <Card.Text>Email: { userProfile.Email }</Card.Text>
+          <Card.Text>Birthday: { userProfile.Birthday }</Card.Text>
           <Link to={`/users/${Username}`}>
             <Button variant="secondary" size="sm" type="button">Edit Profile</Button>
           </Link>
@@ -32,7 +40,7 @@ export class ProfileView extends React.Component {
 }
 
 ProfileView.propTypes = {
-  user: PropTypes.shape({
+  userProfile: PropTypes.shape({
     Username: PropTypes.string.isRequired,
     Email: PropTypes.string.isRequired,
     Birthday: PropTypes.instanceOf(Date).isRequired
