@@ -11,22 +11,25 @@ export class ProfileView extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-        userProfile: this.props.userProfile
-    };
-}
+      user: this.props.Username,
+      email: this.props.Email,
+      birthday: this.props.Birthday
+    }; 
+  }
 
   render() {
-    const { userProfile, onBackClick } = this.props;
+    const { user, email, birthday, onBackClick } = this.props;
     return (
       <Card className="d-flex align-self-stretch m-2 box-shadow">
         {/*<Card.Img variant="top" src={ movie.ImagePath } crossOrigin="anonymous"/> POSSIBLE PHOTO ADD HERE*/}
         <Card.Body>
           <Button variant="link" className="closeCard" onClick={() => { onBackClick(); }}>{'<<'}Back</Button>
           <Card.Title>Your myFlix Profile</Card.Title>
-          <Card.Text>Username: { userProfile.Username }</Card.Text>
+          <Card.Text>Username: { user }</Card.Text>
           <Card.Text>Password: *******</Card.Text>
-          <Card.Text>Email: { userProfile.Email }</Card.Text>
-          <Card.Text>Birthday: { userProfile.Birthday }</Card.Text>
+          <Card.Text>Email: { email }</Card.Text>
+          <Card.Text>Birthday: { birthday }</Card.Text>
+          <Card.Text>Favorites: {  }</Card.Text>
           <Button variant="secondary" size="sm" type="button">Edit Profile</Button>
           <h4>Warning! Clicking this button will DELETE YOUR PROFILE!</h4>
           <Button variant="warning" size="sm" type="button">Unregister</Button>
@@ -36,11 +39,11 @@ export class ProfileView extends React.Component {
   }
 }
 
-ProfileView.propTypes = {
+/*ProfileView.propTypes = {
   userProfile: PropTypes.shape({
     Username: PropTypes.string.isRequired,
     Email: PropTypes.string.isRequired,
     Birthday: PropTypes.instanceOf(Date)
   }).isRequired,
   onBackClick: PropTypes.func.isRequired
-};
+};*/
