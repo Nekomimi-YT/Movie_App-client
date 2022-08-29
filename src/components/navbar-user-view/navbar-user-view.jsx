@@ -9,6 +9,8 @@ export class NavbarUserView extends React.Component {
     super(props);
     this.state = {
         user: this.props.user
+       // email: this.props.email,
+       //birthday: this.props.birthday
     };
 }
 
@@ -31,7 +33,7 @@ componentDidUpdate(prevProps) {
   }
 
   render () {
-    const { user } = this.state;
+    const { user, email, birthday } = this.state;
     if (!user) return <NavbarView />
     
     return (
@@ -41,7 +43,11 @@ componentDidUpdate(prevProps) {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse className="justify-content-end">
             <NavDropdown className="navbar-nav" title={<span className="text">Hi, {user}!</span>} id="basic-nav-dropdown">
-                <NavDropdown.Item><Link to={'/users/profile'}>View Profile</Link></NavDropdown.Item>
+                <NavDropdown.Item>Password: ***</NavDropdown.Item>
+                <NavDropdown.Item>Email: {email}</NavDropdown.Item>
+                <NavDropdown.Item>Birthday: {birthday}</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item><Link to={'/users/:username'}>Edit Profile</Link></NavDropdown.Item>
                 <NavDropdown.Item>Edit Favorite Movies</NavDropdown.Item>
                 <NavDropdown.Item onClick={() => { this.onLoggedOut(); }}>Logout</NavDropdown.Item>
               </NavDropdown>
