@@ -2,7 +2,7 @@
 
 import React from 'react';
 //import PropTypes from 'prop-types';
-import { Col, Row, Card } from 'react-bootstrap';
+import { Col, Card } from 'react-bootstrap';
 import './other-movies-view.scss';
 
 export class OtherMoviesView extends React.Component {
