@@ -7,15 +7,15 @@ import './director-view.scss';
 
 export class DirectorView extends React.Component {
   render() {
-    const { movie, onBackClick } = this.props;
+    const { director, onBackClick } = this.props;
 
     return (
       <Card className="d-flex align-self-stretch m-2 box-shadow">
         {/*<Card.Img variant="top" src={ movie.ImagePath } crossOrigin="anonymous"/> POSSIBLE PHOTO ADD HERE*/}
         <Card.Body>
-          <Card.Title>{ movie.Director.Name }</Card.Title>
-          <Card.Text>{ movie.Director.Bio }</Card.Text>
-            <Button variant="link" className="closeCard" onClick={() => { onBackClick(); }}>Back{'<<'}</Button>
+          <Card.Title>{ director.Name }</Card.Title>
+          <Card.Text>{ director.Bio }</Card.Text>
+            <Button variant="link" className="closeCard" onClick={() => { onBackClick(); }}>{'<<'}Back</Button>
         </Card.Body>
       </Card>
     );
