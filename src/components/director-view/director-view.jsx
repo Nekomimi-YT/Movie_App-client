@@ -15,7 +15,7 @@ export class DirectorView extends React.Component {
         <Card.Body>
           <Card.Title>{ director.Name }</Card.Title>
           <Card.Text>{ director.Bio }</Card.Text>
-            <Button variant="link" className="closeCard" onClick={() => { onBackClick(); }}>{'<<'}Back</Button>
+            <Button variant="link" className="closeCard" onClick={() => { onBackClick(); }}>{'<<'} Back</Button>
         </Card.Body>
       </Card>
     );
