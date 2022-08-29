@@ -1,7 +1,7 @@
 // movie_api-client/src/components/other-movies-view/other-movies-view.jsx
 
 import React from 'react';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Col, Card } from 'react-bootstrap';
 import './other-movies-view.scss';
 
@@ -14,5 +14,9 @@ export class OtherMoviesView extends React.Component {
         <Card.Img variant="top" src={ obj } crossOrigin="anonymous"/>
       </Card>
     </Col>
-  }
+  };
 }
+
+OtherMoviesView.propTypes = {
+    obj: PropTypes.string.isRequired,
+  };
