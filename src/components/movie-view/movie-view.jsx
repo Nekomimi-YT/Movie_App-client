@@ -27,7 +27,7 @@ export class MovieView extends React.Component {
                 <Button variant="link">{ movie.Director.Name }</Button>
               </Link>
             </Card.Text>
-            <Button variant="link" className="closeCard" onClick={() => { onBackClick(); }}>{'<<'}Back</Button>
+            <Button variant="link" className="closeCard" onClick={() => { onBackClick(); }}>{'<<'} Back</Button>
           </Card.Body>
         </Card>
     );
