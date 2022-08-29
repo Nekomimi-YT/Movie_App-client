@@ -95,6 +95,9 @@ export class MainView extends React.Component {
             }} />
             
             <Route path="/users/:username" render={({ history }) => {
+              if (!user) return <Col>
+              <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+            </Col>
               return <Col md={8}>
                 <ProfileView email = { email } birthday = {birthday} user = { user } onBackClick={() => history.goBack()} />
               </Col>
