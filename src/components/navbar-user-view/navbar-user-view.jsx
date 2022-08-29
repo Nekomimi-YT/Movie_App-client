@@ -43,9 +43,9 @@ componentDidUpdate(prevProps) {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse className="justify-content-end">
             <NavDropdown className="navbar-nav" title={<span className="text">Hi, {user}!</span>} id="basic-nav-dropdown">
-                <NavDropdown.Item>Password: ***</NavDropdown.Item>
-                <NavDropdown.Item>Email: {email}</NavDropdown.Item>
-                <NavDropdown.Item>Birthday: {birthday}</NavDropdown.Item>
+                <NavDropdown.ItemText>Password: ***</NavDropdown.ItemText>
+                <NavDropdown.ItemText>Email: {email}</NavDropdown.ItemText>
+                <NavDropdown.ItemText>Birthday: {birthday}</NavDropdown.ItemText>
                 <NavDropdown.Divider />
                 <NavDropdown.Item><Link to={'/users/:username'}>Edit Profile</Link></NavDropdown.Item>
                 <NavDropdown.Item>Edit Favorite Movies</NavDropdown.Item>
