@@ -1,7 +1,7 @@
 // movie_api--client/src/main-view/main-view.jsx
 import React from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Route, Routes, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { Row, Col } from 'react-bootstrap';
 
 import { LoginView } from '../login-view/login-view';
@@ -51,22 +51,27 @@ export class MainView extends React.Component {
   onLoggedIn(authData) {
     console.log(authData);
     console.log(authData.user)
+    console.log(authData.user.Email)
+    console.log(authData.user.Birthday)
     this.setState({
       user: authData.user.Username,
-      userProfile: authData.user
+      email: authData.user.Email,
+      birthday: authData.user.Birthday
     });
 
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
+    localStorage.setItem('email', authData.user.Email);
+    localStorage.setItem('birthday', authData.user.Birthday);
     this.getMovies(authData.token);
   }
 
   render() {
-    const { movies, user, userProfile } = this.state;
+    const { movies, user, email, birthday } = this.state;
     //TODO: need to move NavbarUserView to only logged in route? and move row className?
     return (
       <Router>
-        <NavbarUserView user = { user } />
+        <NavbarUserView user = { user } email = { email } birthday = { birthday }/>
           <Row className="main-view justify-content-md-center">
           <Route exact path="/" render={() => {
              if (!user) return <Col>
@@ -91,7 +96,7 @@ export class MainView extends React.Component {
             
             <Route path="/users/:username" render={({ history }) => {
               return <Col md={8}>
-                <ProfileView userProfile = { userProfile } onBackClick={() => history.goBack()} />
+                <ProfileView email = { email } birthday = {birthday} user = { user } onBackClick={() => history.goBack()} />
               </Col>
             }} />
 
