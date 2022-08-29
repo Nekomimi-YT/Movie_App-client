@@ -20,7 +20,7 @@ export class MovieCard extends React.Component {
           <Card.Text>{ movie.Genre.Name }</Card.Text>
           <Card.Text>{ shortMD }...</Card.Text>
           <Link to={`/movies/${movie._id}`}>
-            <Button variant="link" className="openCard">Open{'>>'}</Button>
+            <Button variant="link" className="openCard">Open {'>>'}</Button>
           </Link>
         </Card.Body>
       </Card>
