@@ -52,7 +52,7 @@ componentDidUpdate(prevProps) {
                 <NavDropdown.ItemText>Email: { navEmail }</NavDropdown.ItemText>
                 <NavDropdown.ItemText>Birthday: { navBirthday }</NavDropdown.ItemText>
                 <NavDropdown.Divider />
-                <NavDropdown.Item><Link to={'/users/:username'}>Edit Profile</Link></NavDropdown.Item>
+                <NavDropdown.Item><Link to={`/users/${user}`}>Edit Profile</Link></NavDropdown.Item>
                 <NavDropdown.Item>Edit Favorite Movies</NavDropdown.Item>
                 <NavDropdown.Item onClick={() => { this.onLoggedOut(); }}>Logout</NavDropdown.Item>
               </NavDropdown>
