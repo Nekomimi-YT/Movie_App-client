@@ -94,7 +94,7 @@ export function ProfileView(props) {
           </Form>
           <hr />
           <div>
-            <Button variant="warning" size="sm" type="button">Unregister</Button>
+            <Button variant="warning" size="sm" type="button" onClick={handleUnregister}>Unregister</Button>
             <p>Warning! Clicking this button will DELETE YOUR PROFILE!</p>
           </div>
         </Card.Body>
