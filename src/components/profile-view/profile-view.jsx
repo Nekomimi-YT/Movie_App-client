@@ -13,11 +13,12 @@ export function ProfileView(props) {
   const [ password, setPassword ] = useState('');
   const [ email, setEmail ] = useState('');
   const [ birthday, setBirthday ] = useState('');
-
   const [values, setValues] = useState({
     passwordErr: '',
     emailErr: ''
   });
+  const accessToken = localStorage.getItem('token');
+  console.log(accessToken);
 
   const validate = () => {
     let isReq = true;
@@ -42,7 +43,8 @@ export function ProfileView(props) {
     const isReq = validate();
     if(isReq) {
       /* Send PUT request to the server for authentication */
-      axios.put('https://myflix-movieapp-bylisa.herokuapp.com/users', {
+      axios.put(`https://myflix-movieapp-bylisa.herokuapp.com/users/${props.user}`, {
+          headers: { Authorization: `Bearer ${accessToken}` },
           Password: password,
           Email: email,
           Birthday: birthday
@@ -50,6 +52,8 @@ export function ProfileView(props) {
       .then(response =>{
           const data = response.data;
           console.log(data);
+          localStorage.setItem('email', data.user.Email);
+          localStorage.setItem('birthday', data.user.Birthday);
           alert('Profile update success!');
           window.open('/', '_self');
       })
@@ -65,9 +69,10 @@ export function ProfileView(props) {
     return (
       <Card className="d-flex align-self-stretch m-2 box-shadow">
         <Card.Body>
-          <Button variant="link" className="closeCard" onClick={() => { onBackClick(); }}>{'<<'}Back</Button>
+          <Button variant="link" className="closeCard" onClick={() => { props.onBackClick(); }}>{'<<'}Back</Button>
           <Card.Title>Update Your Profile:</Card.Title>
-          <Card.Text>Update your password, email or birthday and click the button to submit changes.</Card.Text>
+          <Card.Text>Update your password, email or birthday and click the button to submit changes. 
+            Current profile information is shown inline.</Card.Text>
           <Form>
             <Form.Group controlId="formPassword" className="reg-form-inputs">
               <Form.Label>Password:</Form.Label>
@@ -87,6 +92,7 @@ export function ProfileView(props) {
             </Form.Group>
             <Button variant="secondary" size="sm" type="submit" onClick={handleUpdate}>Submit</Button>
           </Form>
+          <hr />
           <div>
             <Button variant="warning" size="sm" type="button">Unregister</Button>
             <p>Warning! Clicking this button will DELETE YOUR PROFILE!</p>
