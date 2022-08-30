@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Card } from 'react-bootstrap';
 import './login-view.scss';
 
 export function LoginView(props) {
@@ -25,26 +25,31 @@ export function LoginView(props) {
   };
 
   return (
-    <div>
+    <Card className="box-shadow">
+      <Card.Body>
+      <Card.Title><h2>Login Here!</h2></Card.Title>
       <Form>
         <Form.Group controlId="formUsername">
           <Form.Label>Username:</Form.Label>
-          <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
+          <Form.Control className="inputFont" type="text" onChange={e => setUsername(e.target.value)} />
         </Form.Group>
 
         <Form.Group controlId="formPassword">
           <Form.Label>Password:</Form.Label>
-          <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
+          <Form.Control className="inputFont" type="password" onChange={e => setPassword(e.target.value)} />
         </Form.Group>
+
         <Button variant="secondary" size="sm" type="submit" onClick={handleSubmit}>
           Submit
         </Button>
       </Form>
+      
         <p>New to myFlix?{" "} 
           <Link to={"/register"}>
             <Button variant="secondary" type="button" size="sm">Register</Button>
           </Link>
         </p>
-    </div>
+      </Card.Body>
+      </Card>
   );
 }
