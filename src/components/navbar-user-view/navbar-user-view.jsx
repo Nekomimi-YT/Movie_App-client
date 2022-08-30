@@ -9,8 +9,6 @@ export class NavbarUserView extends React.Component {
     super(props);
     this.state = {
         user: this.props.user
-       // email: this.props.email,
-       //birthday: this.props.birthday
     };
 }
 
@@ -18,14 +16,16 @@ componentDidUpdate(prevProps) {
   if (this.props.user !== prevProps.user) {
     console.log(this.props.user, prevProps.user);
     this.setState({
-      user: this.props.user
-    })
-  }
+      user: this.props.user,
+    })  
+  } console.log(this.email);
 }
 
   onLoggedOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    localStorage.removeItem('email');
+    localStorage.removeItem('birthday');
     this.setState({
       user: null
     });
@@ -33,7 +33,10 @@ componentDidUpdate(prevProps) {
   }
 
   render () {
-    const { user, email, birthday } = this.state;
+    const { user } = this.state;
+    const navEmail = localStorage.getItem('email');
+    const navBirthday = localStorage.getItem('birthday');
+
     if (!user) return <NavbarView />
     
     return (
@@ -42,10 +45,11 @@ componentDidUpdate(prevProps) {
           <Navbar.Brand href="#"><h1>myFlix Movies</h1></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse className="justify-content-end">
-            <NavDropdown className="navbar-nav" title={<span className="text">Hi, {user}!</span>} id="basic-nav-dropdown">
+            <NavDropdown className="navbar-nav" title={<span className="text">Hi, { user }!</span>} id="basic-nav-dropdown">
+                <NavDropdown.ItemText>Profile Deets:</NavDropdown.ItemText>
                 <NavDropdown.ItemText>Password: ***</NavDropdown.ItemText>
-                <NavDropdown.ItemText>Email: {email}</NavDropdown.ItemText>
-                <NavDropdown.ItemText>Birthday: {birthday}</NavDropdown.ItemText>
+                <NavDropdown.ItemText>Email: { navEmail }</NavDropdown.ItemText>
+                <NavDropdown.ItemText>Birthday: { navBirthday }</NavDropdown.ItemText>
                 <NavDropdown.Divider />
                 <NavDropdown.Item><Link to={'/users/:username'}>Edit Profile</Link></NavDropdown.Item>
                 <NavDropdown.Item>Edit Favorite Movies</NavDropdown.Item>
