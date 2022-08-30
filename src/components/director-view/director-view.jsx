@@ -14,13 +14,13 @@ export class DirectorView extends React.Component {
       <Card className="d-flex align-self-stretch m-2 box-shadow">
         {/*<Card.Img variant="top" src={ movie.ImagePath } crossOrigin="anonymous"/> POSSIBLE PHOTO ADD HERE*/}
         <Card.Body>
-          <Card.Title>{ director.Name }</Card.Title>
+          <Card.Title><h2>{ director.Name }</h2></Card.Title>
           <Card.Text>{ director.Bio }</Card.Text>
-          <h4>{director.Name}'s movies:</h4>
+          <h2>{director.Name}'s movies:</h2>
           <Row className="d-flex">
             {directorList.map(movie => <OtherMoviesView obj={movie.ImagePath} key={movie._id} />)}
           </Row>
-            <Button variant="link" className="closeCard" onClick={() => { onBackClick(); }}>{'<<'} Back</Button>
+            <Button variant="link" onClick={() => { onBackClick(); }}>{'<<'} Back</Button>
         </Card.Body>
       </Card>
     );
