@@ -35,7 +35,8 @@ componentDidUpdate(prevProps) {
   render () {
     const { user } = this.state;
     const navEmail = localStorage.getItem('email');
-    const navBirthday = localStorage.getItem('birthday');
+    const navBirthday = new Date(localStorage.getItem('birthday')).toString().substring(4, 11);
+    console.log (navBirthday);
 
     if (!user) return <NavbarView />
     
