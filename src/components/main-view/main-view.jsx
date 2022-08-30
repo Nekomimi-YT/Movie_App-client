@@ -22,7 +22,7 @@ export class MainView extends React.Component {
     // Initial state is set to null
     this.state = {
       movies: [],
-      user: null
+      user: null,
     };
   }
 
@@ -49,16 +49,9 @@ export class MainView extends React.Component {
   }
 
   onLoggedIn(authData) {
-    console.log(authData);
-    console.log(authData.user)
-    console.log(authData.user.Email)
-    console.log(authData.user.Birthday)
     this.setState({
-      user: authData.user.Username,
-      email: authData.user.Email,
-      birthday: authData.user.Birthday
+      user: authData.user.Username
     });
-
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
     localStorage.setItem('email', authData.user.Email);
@@ -67,11 +60,12 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { movies, user, email, birthday } = this.state;
+    const { movies, user } = this.state;
+
     //TODO: need to move NavbarUserView to only logged in route? and move row className?
     return (
       <Router>
-        <NavbarUserView user = { user } email = { email } birthday = { birthday }/>
+        <NavbarUserView user = { user } />
           <Row className="main-view justify-content-md-center">
           <Route exact path="/" render={() => {
              if (!user) return <Col>
@@ -99,7 +93,7 @@ export class MainView extends React.Component {
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
             </Col>
               return <Col md={8}>
-                <ProfileView email = { email } birthday = {birthday} user = { user } onBackClick={() => history.goBack()} />
+                <ProfileView user = { user } onBackClick={() => history.goBack()} />
               </Col>
             }} />
 
