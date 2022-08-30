@@ -18,7 +18,7 @@ componentDidUpdate(prevProps) {
     this.setState({
       user: this.props.user,
     })  
-  } console.log(this.email);
+  } 
 }
 
   onLoggedOut() {
@@ -36,7 +36,6 @@ componentDidUpdate(prevProps) {
     const { user } = this.state;
     const navEmail = localStorage.getItem('email');
     const navBirthday = new Date(localStorage.getItem('birthday')).toString().substring(4, 11);
-    console.log (navBirthday);
 
     if (!user) return <NavbarView />
     
