@@ -1,5 +1,7 @@
 Form {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: small;
 }
 
 #formUsername {
@@ -7,7 +9,7 @@ Form {
 }
 
 #formPassword {
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 #formEmail {
@@ -18,4 +20,27 @@ Form {
   margin-bottom: 20px;
 }
 
+Button {
+  color: white !important;
+}
+
+h6 {
+  color: black !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: small !important;
+}
+
+.inputFont {
+  font-family: 'Courier Prime', monospace;
+  font-size: 18px !important;
+}
+
+p {
+  font-family: 'Courier Prime', monospace;
+  font-size: small;
+}
+
+.btn-secondary {
+  font-family: 'Montserrat', sans-serif;
+}
 
