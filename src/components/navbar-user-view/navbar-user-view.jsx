@@ -42,18 +42,22 @@ componentDidUpdate(prevProps) {
     return (
       <Navbar variant="dark" bg="dark" fixed="top" expand="md">
         <Container>
-          <Navbar.Brand href="#"><h1>myFlix Movies</h1></Navbar.Brand>
+          <Navbar.Brand href="/"><h1>myFlix Movies</h1></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse className="justify-content-end">
             <NavDropdown className="navbar-nav" title={<span className="text">Hi, { user }!</span>} id="basic-nav-dropdown">
-                <NavDropdown.ItemText>Profile Deets:</NavDropdown.ItemText>
-                <NavDropdown.ItemText>Password: ***</NavDropdown.ItemText>
-                <NavDropdown.ItemText>Email: { navEmail }</NavDropdown.ItemText>
-                <NavDropdown.ItemText>Birthday: { navBirthday }</NavDropdown.ItemText>
+                <NavDropdown.ItemText><h6>Profile Info</h6></NavDropdown.ItemText>
+                <NavDropdown.ItemText>
+                  <p>
+                    Password: ***<br />
+                    Email: { navEmail }<br />
+                    Birthday: { navBirthday }
+                  </p>
+                </NavDropdown.ItemText>
                 <NavDropdown.Divider />
-                <NavDropdown.Item><Link to={`/users/${user}`}>Edit Profile</Link></NavDropdown.Item>
-                <NavDropdown.Item>Edit Favorite Movies</NavDropdown.Item>
-                <NavDropdown.Item onClick={() => { this.onLoggedOut(); }}>Logout</NavDropdown.Item>
+                <NavDropdown.Item><Link to={`/users/${user}`}><h6>Edit Profile</h6></Link></NavDropdown.Item>
+                <NavDropdown.Item><h6>Edit Favorite Movies</h6></NavDropdown.Item>
+                <NavDropdown.Item onClick={() => { this.onLoggedOut(); }}><h6>Logout</h6></NavDropdown.Item>
               </NavDropdown>
           </Navbar.Collapse>
         </Container>
