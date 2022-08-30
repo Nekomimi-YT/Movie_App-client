@@ -22,14 +22,14 @@ export class MainView extends React.Component {
     // Initial state is set to null
     this.state = {
       movies: [],
-      user: null,
+      user: null
     };
   }
 
   componentDidMount() {
     let accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
-      this.setState({ 
+      this.setState({
         user: localStorage.getItem('user')
       });
       this.getMovies(accessToken);
@@ -50,7 +50,7 @@ export class MainView extends React.Component {
 
   onLoggedIn(authData) {
     this.setState({
-      user: authData.user.Username
+      user: authData.user.Username,
     });
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
@@ -68,7 +68,7 @@ export class MainView extends React.Component {
         <NavbarUserView user = { user } />
           <Row className="main-view justify-content-md-center">
           <Route exact path="/" render={() => {
-             if (!user) return <Col>
+             if (!user) return <Col md={7}>
              <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
            </Col>
         
@@ -83,7 +83,7 @@ export class MainView extends React.Component {
 
             <Route path="/register" render={() => {
               if (user) return <Redirect to="/" />
-              return <Col>
+              return <Col md={7}>
                     <RegistrationView />
                   </Col>
             }} />
