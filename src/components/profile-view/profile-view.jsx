@@ -1,49 +1,101 @@
 // movie_api-client/src/components/profile-view/profile-view.jsx
 
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 //import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { Button, Card } from 'react-bootstrap';
+//import PropTypes from 'prop-types';
+import { Button, Card, Form } from 'react-bootstrap';
 import './profile-view.scss';
 
-export class ProfileView extends React.Component {
 
-  constructor(props){
-    super(props);
-    this.state = {
-      user: this.props.Username,
-      email: this.props.Email,
-      birthday: this.props.Birthday
-    }; 
+export function ProfileView(props) {
+  //const [ username, setUsername ] = useState('');
+  const [ password, setPassword ] = useState('');
+  const [ email, setEmail ] = useState('');
+  const [ birthday, setBirthday ] = useState('');
+
+  const [values, setValues] = useState({
+    passwordErr: '',
+    emailErr: ''
+  });
+
+  const validate = () => {
+    let isReq = true;
+    const passwordRegex = /\d/i;
+
+    if((password.length > 0) && (password.length < 6)) {
+      setValues({...values, passwordErr: 'Password must be at least 6 characters long'});
+      isReq = false;
+    }else if((password.length > 0) && ((passwordRegex.test(password)) == false)) {
+      setValues({...values, passwordErr:'Password must contain at least 1 digit'});
+      isReq = false;
+    }
+    if((email.length > 0) && (email.indexOf("@") === -1)) {
+      setValues({...values, emailErr: 'Not a valid email'});
+      isReq = false;
+      }
+    return isReq;
   }
 
-  render() {
-    const { user, email, birthday, onBackClick } = this.props;
-    const navEmail = localStorage.getItem('email');
-    const navBirthday = localStorage.getItem('birthday');
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    const isReq = validate();
+    if(isReq) {
+      /* Send PUT request to the server for authentication */
+      axios.put('https://myflix-movieapp-bylisa.herokuapp.com/users', {
+          Password: password,
+          Email: email,
+          Birthday: birthday
+      })
+      .then(response =>{
+          const data = response.data;
+          console.log(data);
+          alert('Profile update success!');
+          window.open('/', '_self');
+      })
+      .catch(response => {
+        console.log(response);
+        alert('Unable to update');
+      });
+    };
+  }
+
+  const profileEmail = localStorage.getItem('email');
 
     return (
       <Card className="d-flex align-self-stretch m-2 box-shadow">
-        {/*<Card.Img variant="top" src={ movie.ImagePath } crossOrigin="anonymous"/> POSSIBLE PHOTO ADD HERE*/}
         <Card.Body>
           <Button variant="link" className="closeCard" onClick={() => { onBackClick(); }}>{'<<'}Back</Button>
-          <Card.Title>Update your myFlix Profile:</Card.Title>
-          <Card.Text>Change any field and click the submit button to update.</Card.Text>
-          <Card.Text>Username: { user }</Card.Text>
-          <Card.Text>Password: *******</Card.Text>
-          <Card.Text>Email: { navEmail }</Card.Text>
-          <Card.Text>Birthday: { navBirthday }</Card.Text>
-          <Card.Text>Favorites: {  }</Card.Text>
-          <Button variant="secondary" size="sm" type="button">Edit Profile</Button>
+          <Card.Title>Update Your Profile:</Card.Title>
+          <Card.Text>Update your password, email or birthday and click the button to submit changes.</Card.Text>
+          <Form>
+            <Form.Group controlId="formPassword" className="reg-form-inputs">
+              <Form.Label>Password:</Form.Label>
+              <Form.Control type="password" value={password} placeholder="******" onChange={e => setPassword(e.target.value)} />
+              {values.passwordErr && <p>{values.passwordErr}</p>}
+            </Form.Group>
+
+            <Form.Group controlId="formEmail" className="reg-form-inputs">
+              <Form.Label>Email:</Form.Label>
+              <Form.Control type="email" value={email} placeholder={profileEmail} onChange={e => setEmail(e.target.value)} />
+              {values.emailErr && <p>{values.emailErr}</p>}
+            </Form.Group>
+
+            <Form.Group controlId="formBirthday" className="reg-form-inputs">
+              <Form.Label>Birthday:</Form.Label>
+              <Form.Control type="date" name="birthday" onChange={e => setBirthday(e.target.value)} />
+            </Form.Group>
+
           <div>
-            <h4>Warning! Clicking this button will DELETE YOUR PROFILE!</h4>
             <Button variant="warning" size="sm" type="button">Unregister</Button>
+            <p>Warning! Clicking this button will DELETE YOUR PROFILE!</p>
           </div>
+      </Form>
+          
         </Card.Body>
       </Card>
     );
   }
-}
 
 /*ProfileView.propTypes = {
   userProfile: PropTypes.shape({
