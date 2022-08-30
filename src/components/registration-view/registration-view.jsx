@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Row, Col, Container, Form, Button } from 'react-bootstrap';
+import { Row, Col, Container, Card, Form, Button } from 'react-bootstrap';
 //import { Link } from 'react-router-dom'
 import './registration-view.scss';
 
@@ -73,9 +73,10 @@ export function RegistrationView(props) {
   }
 
   return (
-    <div>
+    <Card className="box-shadow">
+      <Card.Body>
       <Form>
-        <h3>myFlix Sign-Up</h3>
+        <Card.Title><h2>Sign-Up Here</h2></Card.Title>
         <p />
         <Form.Group controlId="formUsername" className="reg-form-inputs">
           <Form.Label>Username:</Form.Label>
@@ -109,6 +110,7 @@ export function RegistrationView(props) {
          <Button variant="secondary" type="button" size="sm">Login</Button>
         </Link>
       </p>
-    </div>
+      </Card.Body>
+    </Card>
   );
 }
