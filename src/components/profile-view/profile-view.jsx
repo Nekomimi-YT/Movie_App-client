@@ -85,13 +85,12 @@ export function ProfileView(props) {
               <Form.Label>Birthday:</Form.Label>
               <Form.Control type="date" name="birthday" onChange={e => setBirthday(e.target.value)} />
             </Form.Group>
-
+            <Button variant="secondary" size="sm" type="submit" onClick={handleUpdate}>Submit</Button>
+          </Form>
           <div>
             <Button variant="warning" size="sm" type="button">Unregister</Button>
             <p>Warning! Clicking this button will DELETE YOUR PROFILE!</p>
           </div>
-      </Form>
-          
         </Card.Body>
       </Card>
     );
