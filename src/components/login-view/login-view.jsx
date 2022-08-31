@@ -44,7 +44,7 @@ export function LoginView(props) {
         </Button>
       </Form>
       
-        <p>New to myFlix?{" "} 
+        <p>New to LisFlix?{" "} 
           <Link to={"/register"}>
             <Button variant="secondary" type="button" size="sm">Register</Button>
           </Link>
