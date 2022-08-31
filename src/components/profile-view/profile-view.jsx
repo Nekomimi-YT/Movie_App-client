@@ -9,7 +9,6 @@ import './profile-view.scss';
 
 
 export function ProfileView(props) {
-  //const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
   const [ email, setEmail ] = useState('');
   const [ birthday, setBirthday ] = useState('');
@@ -18,7 +17,9 @@ export function ProfileView(props) {
     emailErr: ''
   });
   const accessToken = localStorage.getItem('token');
-  console.log(accessToken);
+  const profileEmail = localStorage.getItem('email');
+  const profileBirthday = new Date(localStorage.getItem('birthday')).toString().substring(4, 15);
+
 
   const validate = () => {
     let isReq = true;
@@ -59,43 +60,66 @@ export function ProfileView(props) {
       })
       .catch(response => {
         console.log(response);
+        console.log(accessToken);
         alert('Unable to update');
       });
     };
   }
+// Do I need a component did update to handle the new user data?
 
-  const profileEmail = localStorage.getItem('email');
+const handleUnregister = (e) => {
+  e.preventDefault();
+  axios.delete(`https://myflix-movieapp-bylisa.herokuapp.com/users/${props.user}`, {
+          headers: { Authorization: `Bearer ${accessToken}` },
+      })
+      .then(response =>{
+          const data = response.data;
+          console.log(data);
+          localStorage.removeItem('token');
+          localStorage.removeItem('user');
+          localStorage.removeItem('email');
+          localStorage.removeItem('birthday');
+          alert('Profile update success!');
+          user = null;
+          window.open('/', '_self');
+      })
+      .catch(response => {
+        console.log(response);
+        alert('Unable to update');
+      });
+    };
 
     return (
       <Card className="d-flex align-self-stretch m-2 box-shadow">
         <Card.Body>
-          <Button variant="link" className="closeCard" onClick={() => { props.onBackClick(); }}>{'<<'}Back</Button>
-          <Card.Title>Update Your Profile:</Card.Title>
+          <Button variant="link" onClick={() => { props.onBackClick(); }}>{'<<'}Back</Button>
+          <Card.Title><h2>Update Your Profile:</h2></Card.Title>
           <Card.Text>Update your password, email or birthday and click the button to submit changes. 
             Current profile information is shown inline.</Card.Text>
           <Form>
             <Form.Group controlId="formPassword" className="reg-form-inputs">
-              <Form.Label>Password:</Form.Label>
-              <Form.Control type="password" value={password} placeholder="******" onChange={e => setPassword(e.target.value)} />
+              <Form.Label>Current Password: *hidden*</Form.Label>
+              <Form.Control className="inputFont" type="password" value={password} placeholder="update?" onChange={e => setPassword(e.target.value)} />
               {values.passwordErr && <p>{values.passwordErr}</p>}
             </Form.Group>
 
             <Form.Group controlId="formEmail" className="reg-form-inputs">
-              <Form.Label>Email:</Form.Label>
-              <Form.Control type="email" value={email} placeholder={profileEmail} onChange={e => setEmail(e.target.value)} />
+              <Form.Label>Current Email: {profileEmail}</Form.Label>
+              <Form.Control className="inputFont" type="email" value={email} placeholder="update?" onChange={e => setEmail(e.target.value)} />
               {values.emailErr && <p>{values.emailErr}</p>}
             </Form.Group>
 
             <Form.Group controlId="formBirthday" className="reg-form-inputs">
-              <Form.Label>Birthday:</Form.Label>
-              <Form.Control type="date" name="birthday" onChange={e => setBirthday(e.target.value)} />
+              <Form.Label>Current Birthday: {profileBirthday}</Form.Label>
+              <Form.Control className="inputFont" type="date" name="birthday" onChange={e => setBirthday(e.target.value)} />
             </Form.Group>
             <Button variant="secondary" size="sm" type="submit" onClick={handleUpdate}>Submit</Button>
           </Form>
           <hr />
+          <hr />
           <div>
-            <Button variant="warning" size="sm" type="button" onClick={handleUnregister}>Unregister</Button>
-            <p>Warning! Clicking this button will DELETE YOUR PROFILE!</p>
+            <Button variant="warning" size="sm" type="button" onClick={handleUnregister}>Delete</Button>
+            <p>WARNING! Clicking this button will DELETE YOUR PROFILE!</p>
           </div>
         </Card.Body>
       </Card>
