@@ -31,5 +31,6 @@ FavMovieCard.propTypes = {
     Genre: PropTypes.shape({
       Name: PropTypes.string.isRequired
     })
-  }).isRequired
+  }).isRequired,
+  deleteFavorite: PropTypes.func.isRequired
 };
