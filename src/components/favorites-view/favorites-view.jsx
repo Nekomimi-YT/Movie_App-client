@@ -18,7 +18,7 @@ export class FavoritesView extends React.Component {
             button to remove a movie from your favorite's list.</Card.Text>
           <Row className="d-flex">
             {movies.map(movie => <Col md={3} key={movie._id}>
-              <FavMovieCard movie={movie} /></Col>)}
+              <FavMovieCard movie={movie} deleteFavorite={() => this.deleteFavorite()}/></Col>)}
           </Row>
             <Button variant="link" onClick={() => { onBackClick(); }}>{'<<'} Back</Button>
         </Card.Body>
