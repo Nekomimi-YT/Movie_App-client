@@ -78,18 +78,17 @@ const handleUnregister = (e) => {
       })
       .then(response =>{
           const data = response.data;
-          console.log(data);
           localStorage.removeItem('token');
           localStorage.removeItem('user');
           localStorage.removeItem('email');
           localStorage.removeItem('birthday');
-          alert('Profile update success!');
+          alert('Profile deleted!');
           user = null;
           window.open('/', '_self');
       })
       .catch(response => {
         console.log(response);
-        alert('Unable to update');
+        alert('Error: Account not deleted.');
       });
     };
 
