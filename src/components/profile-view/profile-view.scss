@@ -1,7 +1,25 @@
-.closeCard {
-  color: #DF2073 !important;
-}
-
 .box-shadow {
   box-shadow: 5px 5px #DF2073 !important;
+}
+
+Form {
+  margin-bottom: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: small;
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 28px !important;
+}
+
+.inputFont {
+  font-family: 'Courier Prime', monospace;
+  font-size: 18px !important;
+}
+
+.btn-link {
+  color: #DF2073 !important;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px !important;
 }
