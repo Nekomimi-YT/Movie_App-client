@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Navbar, NavDropdown } from 'react-bootstrap';
+import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { NavbarView } from '../navbar-view/navbar-view';
 
 export class NavbarUserView extends React.Component {
@@ -39,14 +39,15 @@ export class NavbarUserView extends React.Component {
     return (
       <Navbar variant="dark" bg="dark" fixed="top" expand="md">
         <Container>
-          <Navbar.Brand href="/"><h1>myFlix Movies</h1></Navbar.Brand>
+          <Navbar.Brand href="/"><h1>L'sFlix</h1></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse className="justify-content-end">
-            <NavDropdown className="navbar-nav" title={<span className="text">Hi, { user }!</span>} id="basic-nav-dropdown">
-              <NavDropdown.Item><Link to={`/users/${user}`}><h6>Edit Profile</h6></Link></NavDropdown.Item>
-              <NavDropdown.Item><h6>Favorite Movies</h6></NavDropdown.Item>
-              <NavDropdown.Item onClick={() => { this.onLoggedOut(); }}><h6>Logout</h6></NavDropdown.Item>
-            </NavDropdown>
+          <Navbar.Text className="greeting">Hi, { user }</Navbar.Text>
+          <NavDropdown className="navbar-nav" title={<span className="text">Your Info</span>} id="basic-nav-dropdown">
+            <NavDropdown.Item><Link to={`/users/${user}`}><h6>Edit Profile</h6></Link></NavDropdown.Item>
+            <NavDropdown.Item><h6>Favorite Movies</h6></NavDropdown.Item>
+            <NavDropdown.Item onClick={() => { this.onLoggedOut(); }}><h6>Logout</h6></NavDropdown.Item>
+          </NavDropdown>
           </Navbar.Collapse>
         </Container>
       </Navbar>
