@@ -26,6 +26,7 @@ export class NavbarUserView extends React.Component {
     localStorage.removeItem('user');
     localStorage.removeItem('email');
     localStorage.removeItem('birthday');
+    localStorage.removeItem('favorites');
     this.setState({
       user: null
     });
@@ -45,7 +46,7 @@ export class NavbarUserView extends React.Component {
           <Navbar.Text className="greeting">Hi, { user }</Navbar.Text>
           <NavDropdown className="navbar-nav" title={<span className="text">Your Info</span>} id="basic-nav-dropdown">
             <NavDropdown.Item><Link to={`/users/${user}`}><h6>Edit Profile</h6></Link></NavDropdown.Item>
-            <NavDropdown.Item><Link to={`/users/${user}/favorites`}><h6>Favorite Movies</h6></Link></NavDropdown.Item>
+            <NavDropdown.Item><Link to={`/myfavorites`}><h6>Favorite Movies</h6></Link></NavDropdown.Item>
             <NavDropdown.Item onClick={() => { this.onLoggedOut(); }}><h6>Logout</h6></NavDropdown.Item>
           </NavDropdown>
           </Navbar.Collapse>
