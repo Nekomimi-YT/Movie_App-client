@@ -39,7 +39,7 @@ export class NavbarUserView extends React.Component {
     return (
       <Navbar variant="dark" bg="dark" fixed="top" expand="md">
         <Container>
-          <Navbar.Brand href="/"><h1>L'sFlix</h1></Navbar.Brand>
+          <Navbar.Brand href="/"><h1>LisFlix</h1></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse className="justify-content-end">
           <Navbar.Text className="greeting">Hi, { user }</Navbar.Text>
