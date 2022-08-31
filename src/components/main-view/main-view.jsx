@@ -98,6 +98,15 @@ export class MainView extends React.Component {
               </Col>
             }} />
 
+            <Route path="/users/:username/favorites" render={({ history }) => {
+              if (!user) return <Col>
+              <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+            </Col>
+              return <Col md={8}>
+                <FavoritesView user = { user } onBackClick={() => history.goBack()} />
+              </Col>
+            }} />
+
             <Route path="/movies/:movieId" render={({ match, history }) => {
               if (!user) return <Col>
                 <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
