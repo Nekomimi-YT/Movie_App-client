@@ -82,6 +82,7 @@ const handleUnregister = (e) => {
           localStorage.removeItem('user');
           localStorage.removeItem('email');
           localStorage.removeItem('birthday');
+          localStorage.removeItem('favorites');
           alert('Profile deleted!');
           user = null;
           window.open('/', '_self');
