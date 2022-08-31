@@ -56,6 +56,7 @@ export class MainView extends React.Component {
     localStorage.setItem('user', authData.user);
     localStorage.setItem('email', authData.user.Email);
     localStorage.setItem('birthday', authData.user.Birthday);
+    localStorage.setItem('favorites', authData.user.favoriteMovies);
     this.getMovies(authData.token);
   }
 
