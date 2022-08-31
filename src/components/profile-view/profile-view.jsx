@@ -99,7 +99,9 @@ const handleUnregister = (e) => {
           <Button variant="link" onClick={() => { props.onBackClick(); }}>{'<<'}Back</Button>
           <Card.Title><h2>Update Your Profile:</h2></Card.Title>
           <Card.Text>Update your password, email or birthday and click the button to submit changes. 
-            Current profile information is shown inline.</Card.Text>
+            Current profile information is above the input boxes.
+          </Card.Text>
+          <hr />
           <Form>
             <Form.Group controlId="formPassword" className="reg-form-inputs">
               <Form.Label>Current Password: *hidden*</Form.Label>
