@@ -6,7 +6,7 @@ import './movie-view.scss';
 
 export class MovieView extends React.Component {
 
-  addToFavorites(user, movie) {
+  addFavorite(user, movie) {
     const accessToken = localStorage.getItem('token');
     console.log(accessToken); // token confirmed
     console.log(movie._id); // movieID confirmed
@@ -15,7 +15,7 @@ export class MovieView extends React.Component {
     })
     .then(response => {
       this.setState({
-        userData: response.data // resetting the state is necessary? 
+        userData: response.data
       });
       console.log(userData);
       localStorage.setItem('favorites', userData.favoriteMovies);
@@ -31,7 +31,7 @@ export class MovieView extends React.Component {
           <Card.Body>
             <Card.Title>
               <h2>{ movie.Title } { movie.ReleaseYear }</h2>
-              <Button variant="secondary" size="sm" onClick={() => { this.addToFavorites(user, movie); }}>Me Like!</Button>
+              <Button variant="secondary" size="sm" onClick={() => { this.addFavorite(user, movie); }}>Me Like!</Button>
             </Card.Title>
             <Card.Text>Starring: { movie.Actors }</Card.Text>
             <Card.Text>{ movie.Description }</Card.Text>
