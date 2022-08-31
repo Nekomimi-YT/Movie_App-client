@@ -99,7 +99,7 @@ export class MainView extends React.Component {
               </Col>
             }} />
 
-            <Route path="/users/:username/favorites" render={({ history }) => {
+            <Route path="/myfavorites" render={({ history }) => {
               if (!user) return <Col>
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
             </Col>
