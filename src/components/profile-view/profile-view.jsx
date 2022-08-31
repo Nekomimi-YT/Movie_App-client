@@ -19,6 +19,7 @@ export function ProfileView(props) {
   const accessToken = localStorage.getItem('token');
   const profileEmail = localStorage.getItem('email');
   const profileBirthday = new Date(localStorage.getItem('birthday')).toString().substring(4, 15);
+  console.log(props)
 
 
   const validate = () => {
@@ -55,8 +56,11 @@ export function ProfileView(props) {
           console.log(data);
           localStorage.setItem('email', data.user.Email);
           localStorage.setItem('birthday', data.user.Birthday);
-          alert('Profile update success!');
-          window.open('/', '_self');
+          alert(`Profile update success!\n
+            Password: ***\n
+            Email: ${profileEmail}\n
+            Birthday: ${profileBirthday}`);
+          window.open('/', '_self'); 
       })
       .catch(response => {
         console.log(response);
