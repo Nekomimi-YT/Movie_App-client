@@ -7,7 +7,7 @@ import './fav-movie-card.scss';
 
 export class FavMovieCard extends React.Component {
   render() {
-    const { movie } = this.props;
+    const { movie, deleteFavorite } = this.props;
 
     return (
       <Card className="d-flex align-self-stretch m-1 box-shadow">
