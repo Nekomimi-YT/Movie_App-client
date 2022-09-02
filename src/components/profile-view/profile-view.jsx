@@ -19,8 +19,6 @@ export function ProfileView(props) {
   const accessToken = localStorage.getItem('token');
   const profileEmail = localStorage.getItem('email');
   const profileBirthday = new Date(localStorage.getItem('birthday')).toString().substring(4, 15);
-  console.log(props)
-
 
   const validate = () => {
     let isReq = true;
@@ -45,12 +43,17 @@ export function ProfileView(props) {
     const isReq = validate();
     if(isReq) {
       /* Send PUT request to the server for authentication */
-      axios.put(`https://myflix-movieapp-bylisa.herokuapp.com/users/${props.user}`, {
-          headers: { Authorization: `Bearer ${accessToken}` },
-          Password: password,
-          Email: email,
-          Birthday: birthday
-      })
+      axios.put(`https://myflix-movieapp-bylisa.herokuapp.com/users/${props.user}`, 
+      {
+        Username: props.user,
+        Password: password,
+        Email: email,
+        Birthday: birthday,
+      },
+      {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      }
+    )
       .then(response =>{
           const data = response.data;
           console.log(data);
