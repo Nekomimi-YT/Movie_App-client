@@ -10,17 +10,23 @@ export class MovieView extends React.Component {
     const accessToken = localStorage.getItem('token');
     console.log(accessToken); // token confirmed
     console.log(movie._id); // movieID confirmed
-    axios.post(`https://myflix-movieapp-bylisa.herokuapp.com/users/${user}/movies/${movie._id}`, {
-      headers: { Authorization: `Bearer ${accessToken}` }
-    })
+    axios.post(`https://myflix-movieapp-bylisa.herokuapp.com/users/${user}/movies/${movie._id}`, 
+      { 
+        username: user 
+      },
+      {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      }
+    )
     .then(response => {
-      this.setState({
-        userData: response.data
-      });
-      console.log(userData);
-      localStorage.setItem('favorites', userData.favoriteMovies);
+      const data = response.data
+      alert('This movie has been added to your favorites!');
+      localStorage.setItem('favorites', data.favoriteMovies);
     })
-    .catch(error => console.log(error));
+    .catch(error => {
+      console.log(error);
+      alert('Ooops! Went wrong!');
+    })
   }
 
   render() {
