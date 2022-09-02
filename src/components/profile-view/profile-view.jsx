@@ -18,7 +18,7 @@ export function ProfileView(props) {
   const accessToken = localStorage.getItem('token');
   const profileEmail = localStorage.getItem('email');
   const profileBirthday = new Date(localStorage.getItem('birthday')).toString().substring(4, 15);
-
+  console.log(props);
   const validate = () => {
     let isReq = true;
     const passwordRegex = /\d/i;
