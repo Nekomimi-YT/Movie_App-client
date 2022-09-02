@@ -8,8 +8,6 @@ export class MovieView extends React.Component {
 
   addFavorite(user, movie) {
     const accessToken = localStorage.getItem('token');
-    console.log(accessToken); // token confirmed
-    console.log(movie._id); // movieID confirmed
     axios.post(`https://myflix-movieapp-bylisa.herokuapp.com/users/${user}/movies/${movie._id}`, 
       { 
         username: user 
@@ -25,7 +23,7 @@ export class MovieView extends React.Component {
     })
     .catch(error => {
       console.log(error);
-      alert('Ooops! Went wrong!');
+      alert('Ooops! Something went wrong!');
     })
   }
 
