@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
-//import { Link } from 'react-router-dom';
 //import PropTypes from 'prop-types';
 import { Button, Card, Form } from 'react-bootstrap';
 import './profile-view.scss';
@@ -64,7 +63,7 @@ export function ProfileView(props) {
             Password: ***\n
             Email: ${email}\n
             Birthday: ${birthday}`);
-            location.reload();     //window.open('/', '_self'); 
+            location.reload(false); 
       })
       .catch(response => {
         console.log(response);
@@ -73,7 +72,6 @@ export function ProfileView(props) {
       });
     };
   }
-// Do I need a component did update to handle the new user data?
 
 const handleUnregister = (e) => {
   e.preventDefault();
