@@ -57,13 +57,14 @@ export function ProfileView(props) {
       .then(response =>{
           const data = response.data;
           console.log(data);
-          localStorage.setItem('email', data.user.Email);
-          localStorage.setItem('birthday', data.user.Birthday);
+          localStorage.setItem('email', data.Email);
+          localStorage.setItem('birthday', data.Birthday);
+          console.log (email, birthday);
           alert(`Profile update success!\n
             Password: ***\n
-            Email: ${profileEmail}\n
-            Birthday: ${profileBirthday}`);
-          window.open('/', '_self'); 
+            Email: ${email}\n
+            Birthday: ${birthday}`);
+            location.reload();     //window.open('/', '_self'); 
       })
       .catch(response => {
         console.log(response);
