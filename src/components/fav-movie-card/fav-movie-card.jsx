@@ -8,7 +8,7 @@ import './fav-movie-card.scss';
 export class FavMovieCard extends React.Component {
   render() {
     const { favMovie, deleteFavorite } = this.props;
-    const userName = localStorage.getItem('user');
+    const username = localStorage.getItem('user');
     const movieID = favMovie._id;
 
     return (
@@ -18,7 +18,7 @@ export class FavMovieCard extends React.Component {
           <Card.Title><h2>{ favMovie.Title }</h2></Card.Title>
           <Card.Text>{ favMovie.ReleaseYear }</Card.Text>
           <Card.Text>{ favMovie.Genre.Name }</Card.Text>
-            <Button variant="secondary" size="sm" onClick={() => { deleteFavorite(userName, movieID); }}>Delete</Button>
+            <Button variant="secondary" size="sm" onClick={() => { deleteFavorite(username, movieID); }}>Delete</Button>
         </Card.Body>
       </Card>
     );
