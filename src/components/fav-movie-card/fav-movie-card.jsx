@@ -7,17 +7,17 @@ import './fav-movie-card.scss';
 
 export class FavMovieCard extends React.Component {
   render() {
-    const { movie, deleteFavorite } = this.props;
+    const { favMovie, deleteFavorite } = this.props;
     const userName = localStorage.getItem('user');
-    const movieID = movie._id;
+    const movieID = favMovie._id;
 
     return (
       <Card className="d-flex align-self-stretch m-1 box-shadow">
-        <Card.Img variant="top" style={{width: 200}} src={ movie.ImagePath } crossOrigin="anonymous"/>
+        <Card.Img variant="top" style={{width: 200}} src={ favMovie.ImagePath } crossOrigin="anonymous"/>
         <Card.Body>
-          <Card.Title><h2>{ movie.Title }</h2></Card.Title>
-          <Card.Text>{ movie.ReleaseYear }</Card.Text>
-          <Card.Text>{ movie.Genre.Name }</Card.Text>
+          <Card.Title><h2>{ favMovie.Title }</h2></Card.Title>
+          <Card.Text>{ favMovie.ReleaseYear }</Card.Text>
+          <Card.Text>{ favMovie.Genre.Name }</Card.Text>
             <Button variant="secondary" size="sm" onClick={() => { deleteFavorite(userName, movieID); }}>Delete</Button>
         </Card.Body>
       </Card>
