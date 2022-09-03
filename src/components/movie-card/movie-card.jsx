@@ -9,26 +9,24 @@ import './movie-card.scss';
 export class MovieCard extends React.Component {
   render() {
     const { movie } = this.props;
-    const shortMD = movie.Description.slice(0, 100);
+    const shortMD = movie.Description.slice(0, 125);
 
     return (
-      <Card className="d-flex align-self-stretch m-2 box-shadow">
+      <Card className="m-2 box-shadow card-style">
         <Card.Body>
-          <Row className="justify-content-md-center">
-            <Col>
-              <Card.Img variant="top" style={{width: 225}} src={ movie.ImagePath } crossOrigin="anonymous"/>
-            </Col>
-            <Col>
-              <Card.Title><h2>{ movie.Title }</h2></Card.Title>
-              <Card.Text>{ movie.ReleaseYear }</Card.Text>
-              <Card.Text>{ movie.Genre.Name }</Card.Text>
-              <Card.Text>{ shortMD }...</Card.Text>
-              <Link to={`/movies/${movie._id}`}>
-                <Button variant="link">Open {'>>'}</Button>
-              </Link>
-            </Col>
+          <Row className="d-flex flex-column align-items-center">
+            <Card.Img className="image-size m-3" src={ movie.ImagePath } crossOrigin="anonymous"/>
+            <Card.Title><h2>{ movie.Title }</h2></Card.Title>
+            <Card.Text>{ movie.ReleaseYear }</Card.Text>
+            <Card.Text>{ movie.Genre.Name }</Card.Text>
           </Row>
-        </Card.Body>       
+          <Row className="d-flex flex-column m-2">
+            <Card.Text>{ shortMD }...</Card.Text>
+            <Link to={`/movies/${movie._id}`}>
+              <Button variant="link">Open {'>>'}</Button>
+            </Link>
+          </Row>
+        </Card.Body>      
       </Card>
     );
   }
@@ -57,6 +55,28 @@ MovieCard.propTypes = {
             <Button variant="link">Open {'>>'}</Button>
           </Link>
         </Card.Body>
+      </Card>
+    );
+  }
+}
+
+
+<Card className="d-flex align-self-center m-2 box-shadow">
+              <Card.Body className="d-flex">
+                <Row className="d-flex justify-content-center align-items-center">
+                  <Card.Img className="image-size m-3" src={ movie.ImagePath } crossOrigin="anonymous"/>
+                  <div className="d-flex flex-column">
+                    <Card.Title><h2>{ movie.Title }</h2></Card.Title>
+                    <Card.Text>{ movie.ReleaseYear }</Card.Text>
+                    <Card.Text>{ movie.Genre.Name }</Card.Text>
+                    <Card.Text>{ shortMD }...</Card.Text>
+                    <Link to={`/movies/${movie._id}`}>
+                      <Button variant="link">Open {'>>'}</Button>
+                    </Link>
+                  </div>
+               </Row>
+             </Card.Body>   
+           
       </Card>
     );
   }
