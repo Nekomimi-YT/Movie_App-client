@@ -96,7 +96,7 @@ const handleUnregister = (e) => {
     };
 
     return (
-      <Card className="d-flex align-self-stretch m-2 box-shadow">
+      <Card className="d-flex align-self-stretch m-2 box-shadow card-background">
         <Card.Body>
           <Button variant="link" onClick={() => { props.onBackClick(); }}>{'<<'}Back</Button>
           <Card.Title><h2>Update Your Profile:</h2></Card.Title>
@@ -107,19 +107,19 @@ const handleUnregister = (e) => {
           <Form>
             <Form.Group controlId="formPassword" className="reg-form-inputs">
               <Form.Label>Current Password: *hidden*</Form.Label>
-              <Form.Control className="inputFont" type="password" value={password} placeholder="update?" onChange={e => setPassword(e.target.value)} />
+              <Form.Control className="input-font input-background" type="password" value={password} placeholder="update?" onChange={e => setPassword(e.target.value)} />
               {values.passwordErr && <p>{values.passwordErr}</p>}
             </Form.Group>
 
             <Form.Group controlId="formEmail" className="reg-form-inputs">
               <Form.Label>Current Email: {profileEmail}</Form.Label>
-              <Form.Control className="inputFont" type="email" value={email} placeholder="update?" onChange={e => setEmail(e.target.value)} />
+              <Form.Control className="input-font input-background" type="email" value={email} placeholder="update?" onChange={e => setEmail(e.target.value)} />
               {values.emailErr && <p>{values.emailErr}</p>}
             </Form.Group>
 
             <Form.Group controlId="formBirthday" className="reg-form-inputs">
               <Form.Label>Current Birthday: {profileBirthday}</Form.Label>
-              <Form.Control className="inputFont" type="date" name="birthday" onChange={e => setBirthday(e.target.value)} />
+              <Form.Control className="input-font input-background" type="date" name="birthday" onChange={e => setBirthday(e.target.value)} />
             </Form.Group>
             <Button variant="secondary" size="sm" type="submit" onClick={handleUpdate}>Submit</Button>
           </Form>
