@@ -3,7 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Row, Col, Button, Card } from 'react-bootstrap';
+import { Row, Button, Card } from 'react-bootstrap';
 import './movie-card.scss';
 
 export class MovieCard extends React.Component {
