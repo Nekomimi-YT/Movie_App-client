@@ -104,7 +104,7 @@ export class MainView extends React.Component {
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
             </Col>
               return <Col md={8}>
-                <FavoritesView movies = { localStorage.getItem('favorites') } onBackClick={() => history.goBack()} />
+                <FavoritesView movies = {movies} onBackClick={() => history.goBack()} />
               </Col>
             }} />
 
