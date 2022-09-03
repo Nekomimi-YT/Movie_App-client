@@ -65,7 +65,7 @@ export class FavoritesView extends React.Component {
         <Card.Body>
           <Card.Title><h2>Favorites List</h2></Card.Title>
           <Card.Text>You can keep track of all your favorite movies right here!  Click the movie's delete 
-            button to remove a movie from your favorite's list.</Card.Text>
+            button to remove a movie from your favorites list.</Card.Text>
           <Row className="d-flex">
             {movies
             .filter(movie => favMovies.includes(movie._id))
