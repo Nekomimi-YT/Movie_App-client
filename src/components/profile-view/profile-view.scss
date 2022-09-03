@@ -2,6 +2,10 @@
   box-shadow: 5px 5px #DF2073 !important;
 }
 
+.card-background {
+  background: whitesmoke !important;
+}
+
 Form {
   margin-bottom: 20px;
   font-family: 'Montserrat', sans-serif;
@@ -13,9 +17,13 @@ h2 {
   font-size: 28px !important;
 }
 
-.inputFont {
+.input-font {
   font-family: 'Courier Prime', monospace;
   font-size: 18px !important;
+}
+
+.input-background {
+  background: whitesmoke !important;
 }
 
 .btn-link {
