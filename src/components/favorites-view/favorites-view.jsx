@@ -2,8 +2,8 @@
 
 import React from 'react';
 import axios from 'axios';
-import PropTypes from 'prop-types';
-import { Row, Button, Card } from 'react-bootstrap';
+//import PropTypes from 'prop-types';
+import { Col, Row, Button, Card } from 'react-bootstrap';
 import { FavMovieCard } from '../fav-movie-card/fav-movie-card';
 import './favorites-view.scss';
 
@@ -28,16 +28,39 @@ export class FavoritesView extends React.Component {
 
   render() {
     const { movies, onBackClick } = this.props;
-    console.log(movies);
+    const favMovies = localStorage.getItem('favorites').split(',');
+    console.log(favMovies);
+    console.log(movies.filter(movie => favMovies.includes(movie._id)));
+
+    if (!favMovies) {
+      return (
+        <Card className="d-flex align-self-stretch m-2 box-shadow">
+          <Card.Body>
+          <Card.Title><h2>Favorites List</h2></Card.Title>
+          <hr />
+          <Card.Text><p>Oh noooes! You have no favorite movies yet!</p>
+          </Card.Text>
+          <Button variant="link" onClick={() => { onBackClick(); }}>{'<<'} Back</Button>
+        </Card.Body>
+      </Card>
+      );
+    }
+
     return (
       <Card className="d-flex align-self-stretch m-2 box-shadow">
         <Card.Body>
-          <Card.Title><h2>Favorite List</h2></Card.Title>
+          <Card.Title><h2>Favorites List</h2></Card.Title>
           <Card.Text>You can keep track of all your favorite movies right here!  Click the movie's delete 
             button to remove a movie from your favorite's list.</Card.Text>
           <Row className="d-flex">
-            {movies.map(movie => <Col md={3} key={movie._id}>
-              <FavMovieCard movie={movie} deleteFavorite={() => this.deleteFavorite()}/></Col>)}
+            {movies
+            .filter(movie => favMovies.includes(movie._id))
+            .map(m => (
+              <Col md={3} key={m._id}>
+                <FavMovieCard favMovie={m} deleteFavorite={() => this.deleteFavorite()}/>
+              </Col>
+              )
+            )};
           </Row>
             <Button variant="link" onClick={() => { onBackClick(); }}>{'<<'} Back</Button>
         </Card.Body>
@@ -46,7 +69,7 @@ export class FavoritesView extends React.Component {
   }
 }
 
-FavoritesView.propTypes = {
+/*FavoritesView.propTypes = {
     movies: PropTypes.array.isRequired,
     onBackClick: PropTypes.func.isRequired
-};
+}; */
