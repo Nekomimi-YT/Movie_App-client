@@ -26,7 +26,7 @@ export class FavMovieCard extends React.Component {
 }
 
 FavMovieCard.propTypes = {
-  movie: PropTypes.shape({
+  favMovie: PropTypes.shape({
     ImagePath: PropTypes.string.isRequired,
     Title: PropTypes.string.isRequired,
     ReleaseYear: PropTypes.string.isRequired,
