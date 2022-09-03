@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Card, Button } from 'react-bootstrap';
+import { Row, Card, Button } from 'react-bootstrap';
 import './movie-view.scss';
 
 export class MovieView extends React.Component {
@@ -30,14 +30,17 @@ export class MovieView extends React.Component {
   render() {
     const { user, movie, onBackClick } = this.props;
     return ( 
-        <Card className= "m-2 box-shadow">
-          <Card.Img variant="top" src={ movie.ImagePath } style={{width: 270}} crossOrigin="anonymous"/>
+        <Card className= "m-2 box-shadow card-style">
           <Card.Body>
+          <Card.Img className="m-auto image-size" src={ movie.ImagePath } crossOrigin="anonymous"/>
+          <Row className="d-flex flex-column align-items-center mt-3 mr-1 ml-1 }">
             <Card.Title>
               <h2>{ movie.Title } { movie.ReleaseYear }</h2>
-              <Button variant="secondary" size="sm" onClick={() => { this.addFavorite(user, movie); }}>Me Like!</Button>
+              <Button variant="secondary" size="sm" className="mt-2 mb-1" onClick={() => { this.addFavorite(user, movie); }}>Me Like!</Button>
             </Card.Title>
             <Card.Text>Starring: { movie.Actors }</Card.Text>
+            </Row>
+            <Row className="d-flex flex-column align-items-center mt-3 mr-1 ml-1">
             <Card.Text>{ movie.Description }</Card.Text>
             <Card.Text>Critic Rating: { movie.CriticRating }</Card.Text>
             <Card.Text>Audience Rating: { movie.AudienceRating }</Card.Text>
@@ -52,6 +55,7 @@ export class MovieView extends React.Component {
               </Link>
             </Card.Text>
             <Button variant="link" onClick={() => { onBackClick(); }}>{'<<'} Back</Button>
+            </Row>
           </Card.Body>
         </Card>
     );
