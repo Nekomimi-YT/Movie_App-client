@@ -18,8 +18,8 @@ export class MovieView extends React.Component {
     )
     .then(response => {
       const data = response.data
-      alert('This movie has been added to your favorites!');
       localStorage.setItem('favorites', data.favoriteMovies);
+      alert('Movie has been added to your favorites!');
     })
     .catch(error => {
       console.log(error);
