@@ -44,21 +44,23 @@ export class FavoritesView extends React.Component {
     if (!favMovies) {
       return (
         <Card className="d-flex align-self-stretch m-2 box-shadow card-background">
-          <Button variant="link" onClick={() => { onBackClick(); }}>{'<<'} Back</Button>
+          <div>
+            <Button variant="link" onClick={() => { onBackClick(); }}>{'<<'} Back</Button>
+          </div>
           <Card.Body>
-          <Card.Title><h2>Favorites List</h2></Card.Title>
-          <hr />
-          <Card.Text><p>Oh noooes! You have no favorite movies yet!</p>
-          </Card.Text>
-        </Card.Body>
-      </Card>
+            <Card.Title><h2>Favorites List</h2></Card.Title>
+            <hr />
+            <Card.Text><p>Oh noooes! You have no favorite movies yet!</p>
+            </Card.Text>
+          </Card.Body>
+        </Card>
       );
     }
 
     return (
       <Card className="d-flex align-self-stretch m-2 box-shadow card-background">
         <div>
-        <Button variant="link" onClick={() => { onBackClick(); }}>{'<<'} Back</Button>
+          <Button variant="link" onClick={() => { onBackClick(); }}>{'<<'} Back</Button>
         </div>
         <Card.Body>
           <Card.Title><h2>Favorites List</h2></Card.Title>
