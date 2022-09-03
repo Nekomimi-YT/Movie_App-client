@@ -10,20 +10,29 @@ import './favorites-view.scss';
 export class FavoritesView extends React.Component {
 
   deleteFavorite(user, movieID) {
+    console.log(user);
     const accessToken = localStorage.getItem('token');
     console.log(accessToken); 
     console.log(movieID); 
-    axios.delete(`https://myflix-movieapp-bylisa.herokuapp.com/users/${user}/movies/${movieID}`, {
-      headers: { Authorization: `Bearer ${accessToken}` }
+    axios.delete(`https://myflix-movieapp-bylisa.herokuapp.com/users/${user}/movies/${movieID}`, 
+      {
+        headers: { Authorization: `Bearer ${accessToken}` }
+      }
+    )
+    .then(() => {
+      //console.log(response);
+      const favMovies = localStorage.getItem('favorites').split(',');
+      console.log (favMovies);
+      console.log(movieID); 
+      console.log(favMovies.filter(item => item != movieID))
+      localStorage.setItem('favorites', favMovies.filter(item => item != movieID));
+      alert('Movie removed from favorites');
+      location.reload(false);
     })
-    .then(response => {
-      this.setState({
-        userData: response.data
-      });
-      console.log(userData);
-      localStorage.setItem('favorites', userData.favoriteMovies);
+    .catch(error => {
+      console.log(error);
+      alert('Movie removed from favorites');
     })
-    .catch(error => console.log(error));
   }
 
   render() {
@@ -43,7 +52,7 @@ export class FavoritesView extends React.Component {
           <Button variant="link" onClick={() => { onBackClick(); }}>{'<<'} Back</Button>
         </Card.Body>
       </Card>
-      );
+      )
     }
 
     return (
@@ -57,7 +66,7 @@ export class FavoritesView extends React.Component {
             .filter(movie => favMovies.includes(movie._id))
             .map(m => (
               <Col md={6} key={m._id}>
-                <FavMovieCard favMovie={m} deleteFavorite={() => this.deleteFavorite()}/>
+                <FavMovieCard favMovie={m} deleteFavorite={this.deleteFavorite}/>
               </Col>
               )
             )};
