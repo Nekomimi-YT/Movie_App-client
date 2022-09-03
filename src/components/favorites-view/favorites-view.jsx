@@ -56,7 +56,7 @@ export class FavoritesView extends React.Component {
             {movies
             .filter(movie => favMovies.includes(movie._id))
             .map(m => (
-              <Col md={3} key={m._id}>
+              <Col md={6} key={m._id}>
                 <FavMovieCard favMovie={m} deleteFavorite={() => this.deleteFavorite()}/>
               </Col>
               )
