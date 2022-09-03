@@ -30,8 +30,11 @@ export class MovieView extends React.Component {
   render() {
     const { user, movie, onBackClick } = this.props;
     return ( 
-        <Card className= "m-2 box-shadow card-style">
-          <Card.Body>
+        <Card className= "m-2 box-shadow card-background">
+          <div>
+            <Button variant="link" onClick={() => { onBackClick(); }}>{'<<'} Back</Button>
+          </div>
+          <Card.Body className="card-text-align">
           <Card.Img className="m-auto image-size" src={ movie.ImagePath } crossOrigin="anonymous"/>
           <Row className="d-flex flex-column align-items-center mt-3 mr-1 ml-1 }">
             <Card.Title>
@@ -54,7 +57,6 @@ export class MovieView extends React.Component {
                 <Button variant="link">{ movie.Director.Name }</Button>
               </Link>
             </Card.Text>
-            <Button variant="link" onClick={() => { onBackClick(); }}>{'<<'} Back</Button>
             </Row>
           </Card.Body>
         </Card>
