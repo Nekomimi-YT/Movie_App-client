@@ -74,7 +74,7 @@ export class FavoritesView extends React.Component {
                 <FavMovieCard favMovie={m} deleteFavorite={this.deleteFavorite}/>
               </Col>
               )
-            )};
+            )}
           </Row>
         </Card.Body>
       </Card>
