@@ -9,7 +9,7 @@ import './profile-view.scss';
 
 export function ProfileView(props) {
   const [ password, setPassword ] = useState('');
-  const [ email, setEmail ] = useState('');
+  let [ email, setEmail ] = useState('');
   let [ birthday, setBirthday ] = useState('');
   const [values, setValues] = useState({
     passwordErr: '',
@@ -43,6 +43,9 @@ export function ProfileView(props) {
     if(isReq) {
       if(!birthday) {
         birthday = localStorage.getItem('birthday');
+      }
+      if(!email) {
+        email = localStorage.getItem('email');
       }
       /* Send PUT request to the server for authentication */
       axios.put(`https://myflix-movieapp-bylisa.herokuapp.com/users/${props.user}`, 
