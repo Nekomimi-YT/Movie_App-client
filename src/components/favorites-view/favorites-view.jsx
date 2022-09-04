@@ -2,7 +2,7 @@
 
 import React from 'react';
 import axios from 'axios';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Col, Row, Button, Card } from 'react-bootstrap';
 import { FavMovieCard } from '../fav-movie-card/fav-movie-card';
 import './favorites-view.scss';
@@ -20,7 +20,6 @@ export class FavoritesView extends React.Component {
       }
     )
     .then(() => {
-      //console.log(response);
       const favMovies = localStorage.getItem('favorites').split(',');
       console.log (favMovies);
       console.log(movieID); 
@@ -38,7 +37,6 @@ export class FavoritesView extends React.Component {
   render() {
     const { movies, onBackClick } = this.props;
     const favMovies = localStorage.getItem('favorites').split(',');
-    console.log(favMovies);
     console.log(movies.filter(movie => favMovies.includes(movie._id)));
 
     if (favMovies == '')  {
@@ -82,7 +80,7 @@ export class FavoritesView extends React.Component {
   }
 }
 
-/*FavoritesView.propTypes = {
+FavoritesView.propTypes = {
     movies: PropTypes.array.isRequired,
     onBackClick: PropTypes.func.isRequired
-}; */
+}; 
