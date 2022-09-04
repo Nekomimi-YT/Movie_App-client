@@ -11,8 +11,7 @@ export class DirectorView extends React.Component {
     const { director, directorList, onBackClick } = this.props;
     console.log(directorList);
     return (
-      <Card className="d-flex align-self-stretch m-2 box-shadow">
-        {/*<Card.Img variant="top" src={ movie.ImagePath } crossOrigin="anonymous"/> POSSIBLE PHOTO ADD HERE*/}
+      <Card className="d-flex align-self-stretch m-2 box-shadow card-background">
         <div>
           <Button variant="link" onClick={() => { onBackClick(); }}>{'<<'} Back</Button>
         </div>
