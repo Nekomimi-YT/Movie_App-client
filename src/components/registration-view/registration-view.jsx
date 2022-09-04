@@ -73,32 +73,32 @@ export function RegistrationView(props) {
   }
 
   return (
-    <Card className="box-shadow">
+    <Card className="box-shadow card-background">
       <Card.Body>
       <Form>
         <Card.Title><h2>Sign-Up Here</h2></Card.Title>
         <p />
         <Form.Group controlId="formUsername" className="reg-form-inputs">
           <Form.Label>Username:</Form.Label>
-          <Form.Control className="inputFont" type="text" value={username} onChange={e => setUsername(e.target.value)} />
+          <Form.Control className="input-font input-background" type="text" value={username} onChange={e => setUsername(e.target.value)} />
             {values.usernameErr && <p>{values.usernameErr}</p>}
         </Form.Group>
 
         <Form.Group controlId="formPassword" className="reg-form-inputs">
           <Form.Label>Password:</Form.Label>
-          <Form.Control className="inputFont" type="password" value={password} onChange={e => setPassword(e.target.value)} />
+          <Form.Control className="input-font input-background" type="password" value={password} onChange={e => setPassword(e.target.value)} />
           {values.passwordErr && <p>{values.passwordErr}</p>}
         </Form.Group>
 
         <Form.Group controlId="formEmail" className="reg-form-inputs">
           <Form.Label>Email:</Form.Label>
-          <Form.Control className="inputFont" type="email" value={email} onChange={e => setEmail(e.target.value)} />
+          <Form.Control className="input-font input-background" type="email" value={email} onChange={e => setEmail(e.target.value)} />
           {values.emailErr && <p>{values.emailErr}</p>}
         </Form.Group>
 
         <Form.Group controlId="formBirthday" className="reg-form-inputs">
           <Form.Label>Birthday:</Form.Label>
-          <Form.Control className="inputFont" type="date" name="birthday" onChange={e => setBirthday(e.target.value)} />
+          <Form.Control className="input-font input-background" type="date" name="birthday" onChange={e => setBirthday(e.target.value)} />
         </Form.Group>
 
         <Button variant="secondary" size="sm" type="submit" onClick={handleSubmit}>
