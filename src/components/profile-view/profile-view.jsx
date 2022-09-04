@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Button, Card, Form } from 'react-bootstrap';
 import './profile-view.scss';
 
@@ -139,11 +139,7 @@ const handleUnregister = (e) => {
     );
   }
 
-/*ProfileView.propTypes = {
-  userProfile: PropTypes.shape({
-    Username: PropTypes.string.isRequired,
-    Email: PropTypes.string.isRequired,
-    Birthday: PropTypes.instanceOf(Date)
-  }).isRequired,
+ProfileView.propTypes = {
+  user: PropTypes.string.isRequired,
   onBackClick: PropTypes.func.isRequired
-};*/
+};
