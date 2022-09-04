@@ -12,6 +12,9 @@ export class GenreView extends React.Component {
     console.log(genreList);
     return (
       <Card className="d-flex align-self-stretch m-2 box-shadow card-background">
+        <div>
+          <Button variant="link" onClick={() => { onBackClick(); }}>{'<<'} Back</Button>
+        </div>
         <Card.Body>
           <Card.Title><h2>{ genre.Name }</h2></Card.Title>
           <Card.Text>{genre.Description}</Card.Text>
@@ -19,7 +22,6 @@ export class GenreView extends React.Component {
           <Row className="d-flex">
             {genreList.map(movie => <OtherMoviesView obj={movie.ImagePath} key={movie._id} />)}
           </Row>
-            <Button variant="link" onClick={() => { onBackClick(); }}>{'<<'} Back</Button>
         </Card.Body>
       </Card>
     );
