@@ -43,7 +43,7 @@ export class NavbarUserView extends React.Component {
           <Navbar.Brand href="/"><h1>LisFlix</h1></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse className="justify-content-end">
-          <Navbar.Text className="greeting">Hi, { user }</Navbar.Text>
+          <Navbar.Text className="greeting mr-4">Hi, { user }</Navbar.Text>
           <NavDropdown className="navbar-nav" title={<span className="text">Your Info</span>} id="basic-nav-dropdown">
             <NavDropdown.Item><Link to={`/users/${user}`}><h6>Edit Profile</h6></Link></NavDropdown.Item>
             <NavDropdown.Item><Link to={`/myfavorites`}><h6>Favorite Movies</h6></Link></NavDropdown.Item>
