@@ -41,7 +41,7 @@ export class FavoritesView extends React.Component {
     console.log(favMovies);
     console.log(movies.filter(movie => favMovies.includes(movie._id)));
 
-    if (!favMovies) {
+    if (favMovies == '')  {
       return (
         <Card className="d-flex align-self-stretch m-2 box-shadow card-background">
           <div>
