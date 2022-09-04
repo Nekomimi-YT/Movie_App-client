@@ -98,7 +98,9 @@ const handleUnregister = (e) => {
     return (
       <Card className="d-flex align-self-stretch m-2 box-shadow card-background">
         <Card.Body>
-          <Button variant="link" onClick={() => { props.onBackClick(); }}>{'<<'}Back</Button>
+          <div>
+            <Button variant="link" onClick={() => { props.onBackClick(); }}>{'<< '}Back</Button>
+          </div>
           <Card.Title><h2>Update Your Profile:</h2></Card.Title>
           <Card.Text>Update your password, email or birthday and click the button to submit changes. 
             Current profile information is above the input boxes.
