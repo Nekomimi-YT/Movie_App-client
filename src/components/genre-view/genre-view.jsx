@@ -11,7 +11,7 @@ export class GenreView extends React.Component {
     const { genre, genreList, onBackClick } = this.props;
     console.log(genreList);
     return (
-      <Card className="d-flex align-self-stretch m-2 box-shadow">
+      <Card className="d-flex align-self-stretch m-2 box-shadow card-background">
         <Card.Body>
           <Card.Title><h2>{ genre.Name }</h2></Card.Title>
           <Card.Text>{genre.Description}</Card.Text>
