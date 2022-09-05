@@ -1,14 +1,17 @@
 // movie_api--client/src/main-view/main-view.jsx
 import React from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { Row, Col } from 'react-bootstrap';
 
+import { setMovies } from '../../actions/actions';
+
+import MoviesList from '../movies-list/movies-list';
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { ProfileView } from '../profile-view/profile-view';
 import { NavbarUserView } from '../navbar-user-view/navbar-user-view';
-import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
@@ -22,7 +25,6 @@ export class MainView extends React.Component {
     super();
     // Initial state is set to null
     this.state = {
-      movies: [],
       user: null
     };
   }
@@ -42,9 +44,7 @@ export class MainView extends React.Component {
       headers: { Authorization: `Bearer ${token}` }
     })
     .then(response => {
-      this.setState({
-        movies: response.data
-      });
+      this.props.setMovies(response.data);
     })
     .catch(error => console.log(error));
   }
@@ -62,7 +62,8 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { movies, user } = this.state;
+    let { user } = this.state;
+    let { movies } = this.props;
 
     //TODO: need to move NavbarUserView to only logged in route? and move row className?
     return (
@@ -76,11 +77,7 @@ export class MainView extends React.Component {
         
               if (movies.length === 0) return <div className="main-view" />;
               
-              return movies.map(m => (
-                <Col md={6} key={m._id}>
-                  <MovieCard movie={m} />
-              </Col>
-              ))
+              return <MoviesList movies={movies}/>;
             }} /> 
 
             <Route path="/register" render={() => {
@@ -146,3 +143,8 @@ export class MainView extends React.Component {
     ); 
   } 
 }
+let mapStateToProps = state => {
+  return { movies: state.movies }
+}
+
+export default connect(mapStateToProps, { setMovies } )(MainView);
