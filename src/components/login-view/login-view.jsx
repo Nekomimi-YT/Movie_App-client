@@ -24,7 +24,6 @@ export function LoginView(props) {
     .then(response => { 
       const data = response.data;
       props.onLoggedIn(data);
-      //props.setUser(data);
     })
     .catch(error => {
       console.log(error);
