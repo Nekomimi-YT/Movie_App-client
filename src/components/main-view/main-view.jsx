@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { Row, Col } from 'react-bootstrap';
 
-import { setMovies } from '../../actions/actions';
+import { setMovies, setUser } from '../../actions/actions';
 
 import MoviesList from '../movies-list/movies-list';
 import { LoginView } from '../login-view/login-view';
@@ -24,9 +24,9 @@ export class MainView extends React.Component {
   constructor() {
     super();
     // Initial state is set to null
-    this.state = {
-      user: null
-    };
+    //this.state = {
+    //  user: null
+   // };
   }
 
   componentDidMount() {
@@ -50,9 +50,6 @@ export class MainView extends React.Component {
   }
 
   onLoggedIn(authData) {
-    this.setState({
-      user: authData.user.Username
-    });
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
     localStorage.setItem('email', authData.user.Email);
@@ -62,7 +59,7 @@ export class MainView extends React.Component {
   }
 
   render() {
-    let { user } = this.state;
+    let { user } = this.props; 
     let { movies } = this.props;
 
     //TODO: need to move NavbarUserView to only logged in route? and move row className?
