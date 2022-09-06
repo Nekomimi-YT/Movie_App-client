@@ -1,14 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { NavbarView } from '../navbar-view/navbar-view';
+import { setUser } from '../../actions/actions';
 
 export class NavbarUserView extends React.Component {
   
   constructor(props){
     super(props);
     this.state = {
-        user: this.props.user
+      user: this.props.user
     };
   }
 
