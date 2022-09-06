@@ -27,16 +27,16 @@ function movies(state = [], action) {
   }
 }
 
-function userState(state = {}, action) {
+function userState(state = '', action) {
   switch (action.type) {
     case SET_USER:
-      return action.value;
+      return action.value || localStorage.getItem('user');
     default:
       return state;
   }
 }
 
-function manageFavorites(state =[], action) { 
+function manageFavorites(state = '', action) { 
   switch (action.type) {
     case SET_FAVMOV:
       return action.value;

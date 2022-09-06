@@ -22,9 +22,9 @@ export function LoginView(props) {
       Password: password
     })
     .then(response => { 
-      this.props.setUser(response.data);
-      //const data = response.data;
-      //props.onLoggedIn(data);
+      const data = response.data;
+      this.props.setUser(data);
+      props.onLoggedIn(data);
     })
     .catch(error => console.log(`no such user: ${error}`))
   };
