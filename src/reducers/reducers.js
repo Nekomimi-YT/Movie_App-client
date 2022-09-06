@@ -27,7 +27,7 @@ function movies(state = [], action) {
   }
 }
 
-function userState(state = '', action) {
+function user(state = '', action) {
   switch (action.type) {
     case SET_USER:
       return action.value || localStorage.getItem('user');
@@ -50,7 +50,7 @@ function manageFavorites(state = '', action) {
 const moviesApp = combineReducers({
   visibilityFilter,
   movies,
-  userState,
+  user,
   manageFavorites
 });
 
