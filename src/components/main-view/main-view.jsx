@@ -23,10 +23,6 @@ export class MainView extends React.Component {
 
   constructor() {
     super();
-    // Initial state is set to null
-    //this.state = {
-    //  user: null
-   // };
   }
 
   componentDidMount() {
@@ -65,7 +61,6 @@ export class MainView extends React.Component {
   render() {
     let { user, movies } = this.props; 
 
-    //TODO: need to move NavbarUserView to only logged in route? and move row className?
     return (
       <Router>
         <NavbarUserView user = { user } />
