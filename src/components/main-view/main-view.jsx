@@ -46,6 +46,7 @@ export class MainView extends React.Component {
   }
 
   onLoggedIn(authData) {
+    console.log(authData);
     this.props.setUser({
         user: authData.user.Username
       }
