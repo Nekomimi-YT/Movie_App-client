@@ -28,7 +28,7 @@ export function LoginView(props) {
     })
     .catch(error => {
       console.log(error);
-      alert('Username or password is incorrect');
+      alert('Username or password not found');
     })
   };
 
