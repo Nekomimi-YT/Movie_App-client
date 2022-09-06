@@ -5,6 +5,9 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Form, Button, Card } from 'react-bootstrap';
+
+import { setUser } from '../../actions/actions';
+
 import './login-view.scss';
 
 export function LoginView(props) {
@@ -19,8 +22,9 @@ export function LoginView(props) {
       Password: password
     })
     .then(response => { 
-      const data = response.data;
-      props.onLoggedIn(data);
+      this.props.setUser(response.data);
+      //const data = response.data;
+      //props.onLoggedIn(data);
     })
     .catch(error => console.log(`no such user: ${error}`))
   };
