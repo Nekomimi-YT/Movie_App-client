@@ -58,3 +58,9 @@ export function LoginView(props) {
       </Card>
   );
 }
+
+let mapStateToProps = state => {
+  return { user: state.user }
+}
+
+export default connect(mapStateToProps, { setUser } )(LoginView);
