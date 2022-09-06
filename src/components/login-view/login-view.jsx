@@ -17,7 +17,6 @@ export function LoginView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Send a request to the server for authentication, then call props.onLoggedIn(data)
     axios.post('https://myflix-movieapp-bylisa.herokuapp.com/login', {
       Username: username,
       Password: password
@@ -25,6 +24,7 @@ export function LoginView(props) {
     .then(response => { 
       const data = response.data;
       props.onLoggedIn(data);
+      //props.setUser(data);
     })
     .catch(error => {
       console.log(error);
