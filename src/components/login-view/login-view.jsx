@@ -24,7 +24,6 @@ export function LoginView(props) {
     })
     .then(response => { 
       const data = response.data;
-      this.props.setUser(data);
       props.onLoggedIn(data);
     })
     .catch(error => {
@@ -68,7 +67,7 @@ let mapStateToProps = state => {
 }
 
 LoginView.propTypes = {
-  onLoggedIn: PropTypes.func.isRequired,
+  onLoggedIn: PropTypes.func.isRequired
 };
 
 export default connect(mapStateToProps, { setUser } )(LoginView);
