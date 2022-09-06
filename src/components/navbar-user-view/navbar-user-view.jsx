@@ -57,3 +57,13 @@ export class NavbarUserView extends React.Component {
     );
   }
 }
+
+let mapStateToProps = state => {
+  return { user: state.user }
+}
+
+//NavbarUserView.propTypes = {
+//  onLoggedIn: PropTypes.func.isRequired
+//};
+
+export default connect(mapStateToProps, { setUser } )(NavbarUserView);
