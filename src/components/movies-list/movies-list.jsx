@@ -1,6 +1,7 @@
 import React from 'react';
 import { Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import VisibilityFilterInput from '../visibility-filter-input/visibility-filter-input';
 import { MovieCard } from '../movie-card/movie-card';
@@ -31,5 +32,26 @@ function MoviesList(props) {
   ))}
 </>;
 }
+
+MoviesList.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      ImagePath: PropTypes.string.isRequired,
+      Title: PropTypes.string.isRequired,
+      ReleaseYear: PropTypes.string.isRequired,
+      CriticRating: PropTypes.string.isRequired,
+      AudienceRating: PropTypes.string.isRequired,
+      Genre: PropTypes.shape({
+        Name: PropTypes.string.isRequired,
+        Description: PropTypes.string.isRequired,
+      }),
+      Director: PropTypes.shape({
+        Name: PropTypes.string.isRequired,
+        Bio: PropTypes.string.isRequired,
+      }),
+      Actors:PropTypes.array.isRequired
+    })).isRequired,
+  visibilityFilter:PropTypes.string.isRequired
+};
 
 export default connect(mapStateToProps)(MoviesList);
