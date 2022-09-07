@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { Row, Col } from 'react-bootstrap';
 
-import { setMovies, setUser } from '../../actions/actions';
+import { setMovies, setUser, setFavmov } from '../../actions/actions';
 
 import MoviesList from '../movies-list/movies-list';
 import { LoginView } from '../login-view/login-view';
@@ -49,8 +49,7 @@ export class MainView extends React.Component {
     console.log(authData);
     this.props.setUser({
         user: authData.user.Username
-      }
-    )
+      });
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
     localStorage.setItem('email', authData.user.Email);
@@ -60,11 +59,11 @@ export class MainView extends React.Component {
   }
 
   render() {
-    let { user, movies } = this.props; 
+    let { user, movies, setFavmov } = this.props; 
 
     return (
       <Router>
-        <NavbarUserView user = { user } />
+        <NavbarUserView user = { user }/>
           <Row className="main-view justify-content-md-center">
           <Route exact path="/" render={() => {
              if (!user) return <Col md={7}>
@@ -142,8 +141,9 @@ export class MainView extends React.Component {
 let mapStateToProps = state => {
   return { 
     movies: state.movies,
-    user: state.user 
+    user: state.user,
+    favorites: state.favorites
   };
 };
 
-export default connect(mapStateToProps, { setMovies, setUser } )(MainView);
+export default connect(mapStateToProps, { setMovies, setUser, setFavmov} )(MainView);

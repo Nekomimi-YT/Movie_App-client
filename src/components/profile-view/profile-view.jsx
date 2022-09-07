@@ -6,19 +6,20 @@ import PropTypes from 'prop-types';
 import { Button, Card, Form } from 'react-bootstrap';
 import './profile-view.scss';
 
-
 export function ProfileView(props) {
   const [ password, setPassword ] = useState('');
   let [ email, setEmail ] = useState('');
   let [ birthday, setBirthday ] = useState('');
+  
   const [values, setValues] = useState({
     passwordErr: '',
     emailErr: ''
   });
+  
   const accessToken = localStorage.getItem('token');
   const profileEmail = localStorage.getItem('email');
   const profileBirthday = new Date(localStorage.getItem('birthday')).toString().substring(4, 15);
-  console.log(props);
+  
   const validate = () => {
     let isReq = true;
     const passwordRegex = /\d/i;
@@ -47,7 +48,6 @@ export function ProfileView(props) {
       if(!email) {
         email = localStorage.getItem('email');
       }
-      /* Send PUT request to the server for authentication */
       axios.put(`https://myflix-movieapp-bylisa.herokuapp.com/users/${props.user}`, 
       {
         Username: props.user,
@@ -59,7 +59,7 @@ export function ProfileView(props) {
         headers: { Authorization: `Bearer ${accessToken}` },
       }
     )
-      .then(response =>{
+      .then(response => {
           const data = response.data;
           console.log(data);
           localStorage.setItem('email', data.Email);
@@ -101,25 +101,27 @@ const handleUnregister = (e) => {
     return (
       <Card className="d-flex align-self-stretch m-2 box-shadow card-background">
         <div>
-            <Button variant="link" onClick={() => { props.onBackClick(); }}>{'<< '}Back</Button>
+          <Button variant="link" onClick={() => { props.onBackClick(); }}>{'<< '}Back</Button>
         </div>
         <Card.Body>
           <Card.Title><h2>Update Your Profile:</h2></Card.Title>
-          <Card.Text>Update your password, email or birthday and click the button to submit changes. 
+          <Card.Text>Update your password, email and birthday and click the button to submit changes. 
             Current profile information is above the input boxes.
           </Card.Text>
           <hr />
           <Form>
             <Form.Group controlId="formPassword" className="reg-form-inputs">
               <Form.Label>Current Password: *hidden*</Form.Label>
-              <Form.Control className="input-font input-background" type="password" value={password} placeholder="update?" onChange={e => setPassword(e.target.value)} />
-              {values.passwordErr && <p>{values.passwordErr}</p>}
+              <Form.Control className="input-font input-background" type="password" value={password} placeholder="update?" 
+                onChange={e => setPassword(e.target.value)} />
+                {values.passwordErr && <p>{values.passwordErr}</p>}
             </Form.Group>
 
             <Form.Group controlId="formEmail" className="reg-form-inputs">
               <Form.Label>Current Email: {profileEmail}</Form.Label>
-              <Form.Control className="input-font input-background" type="email" value={email} placeholder="update?" onChange={e => setEmail(e.target.value)} />
-              {values.emailErr && <p>{values.emailErr}</p>}
+              <Form.Control className="input-font input-background" type="email" value={email} placeholder="update?" 
+                onChange={e => setEmail(e.target.value)} />
+                {values.emailErr && <p>{values.emailErr}</p>}
             </Form.Group>
 
             <Form.Group controlId="formBirthday" className="reg-form-inputs">
