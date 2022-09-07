@@ -60,12 +60,10 @@ export function RegistrationView() {
       })
       .then(response =>{
           const data = response.data;
-          console.log(data);
           alert('Registration success! Please login.');
           window.open('/', '_self');
       })
       .catch(response => {
-        console.log(response);
         alert('Unable to register');
       });
     };
