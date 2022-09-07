@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { NavbarView } from '../navbar-view/navbar-view';
 import { setUser } from '../../actions/actions';
@@ -52,8 +51,8 @@ export class NavbarUserView extends React.Component {
           <Navbar.Collapse className="justify-content-end">
           <Navbar.Text className="greeting mr-5">Hi, { user }</Navbar.Text>
           <NavDropdown className="navbar-nav" title={<span className="text">Your Info</span>} id="basic-nav-dropdown">
-            <NavDropdown.Item><Link to={`/users/${user}`}><h6>Edit Profile</h6></Link></NavDropdown.Item>
-            <NavDropdown.Item><Link to={`/myfavorites`}><h6>Favorite Movies</h6></Link></NavDropdown.Item>
+            <NavDropdown.Item href={`/users/${user}`}><h6>Edit Profile</h6></NavDropdown.Item>
+            <NavDropdown.Item href={`/myfavorites`}><h6>Favorite Movies</h6></NavDropdown.Item>
             <NavDropdown.Item onClick={() => { this.onLoggedOut(); }}><h6>Logout</h6></NavDropdown.Item>
           </NavDropdown>
           </Navbar.Collapse>
