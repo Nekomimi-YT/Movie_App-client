@@ -6,33 +6,34 @@
   background: whitesmoke !important;
 }
 
-Form {
-  margin-bottom: 20px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: small;
-}
-
 h2 {
   font-family: 'Montserrat', sans-serif !important;
   font-size: 30px !important;
-}
-
-#formUsername {
-  margin-bottom: 30px;
-}
-
-#formPassword {
-  margin-bottom: 15px;
-}
-
-Button {
-  color: white !important;
 }
 
 h6 {
   color: black !important;
   font-family: 'Montserrat', sans-serif !important;
   font-size: small !important;
+}
+
+p {
+  font-family: 'Courier Prime', monospace;
+  font-size: small;
+}
+
+Form {
+  margin-bottom: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: small;
+}
+
+.input-margin {
+  margin-bottom: 20px
+}
+
+Button {
+  color: white !important;
 }
 
 .input-font {
@@ -43,11 +44,6 @@ h6 {
 
 .input-background {
   background: whitesmoke !important;
-}
-
-p {
-  font-family: 'Courier Prime', monospace;
-  font-size: small;
 }
 
 .btn-secondary {
