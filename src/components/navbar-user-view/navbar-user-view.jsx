@@ -7,23 +7,27 @@ import { setUser } from '../../actions/actions';
 
 export class NavbarUserView extends React.Component {
   
-  constructor(props){
-    super(props);
-    this.state = {
-      user: this.props.user
-    };
+  constructor(){
+    super();
   }
 
-  componentDidUpdate(prevProps) {
-   if (this.props.user !== prevProps.user) {
-      console.log(this.props.user, prevProps.user);
-      this.setState({
-      user: this.props.user
-      });  
-    } 
-  }
+  //suggestion for testing navbar ...
+  //isAuthenticated () {
+  //  localStorage.getItem('user') ? true :false;
+  //}
 
-  onLoggedOut() {
+  //componentDidUpdate no longer functions with use of redux and connect()
+
+  /*componentDidUpdate(prevProps) {
+    if (this.props.user !== prevProps.user) {
+       console.log(this.props.user, prevProps.user);
+       this.setState({
+       user: this.props.user
+       });  
+     } 
+   }*/
+
+ onLoggedOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     localStorage.removeItem('email');
@@ -37,6 +41,7 @@ export class NavbarUserView extends React.Component {
 
   render () {
     const { user } = this.props;
+
     if (!user) return <NavbarView />
     
     return (
@@ -63,7 +68,7 @@ let mapStateToProps = state => {
 }
 
 //NavbarUserView.propTypes = {
-//  onLoggedIn: PropTypes.func.isRequired
+ // onLoggedIn: PropTypes.func.isRequired
 //};
 
 export default connect(mapStateToProps, { setUser } )(NavbarUserView);
