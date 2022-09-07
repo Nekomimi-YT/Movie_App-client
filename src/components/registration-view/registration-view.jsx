@@ -74,7 +74,7 @@ export function RegistrationView() {
       <Card.Body>
       <Form>
         <Card.Title><h2>Sign-Up Here</h2></Card.Title>
-        <p />
+      
         <Form.Group controlId="formUsername" className="reg-form-inputs">
           <Form.Label>*Username:</Form.Label>
           <Form.Control className="input-font input-background" type="text" value={username} 
