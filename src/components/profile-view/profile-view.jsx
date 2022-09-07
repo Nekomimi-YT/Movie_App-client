@@ -112,21 +112,21 @@ const handleUnregister = (e) => {
           <Form>
             <Form.Group controlId="formPassword" className="reg-form-inputs">
               <Form.Label>Current Password: *hidden*</Form.Label>
-              <Form.Control className="input-font input-background" type="password" value={password} placeholder="update?" 
+              <Form.Control className="input-font input-background input-margin" type="password" value={password} placeholder="update?" 
                 onChange={e => setPassword(e.target.value)} />
                 {values.passwordErr && <p>{values.passwordErr}</p>}
             </Form.Group>
 
             <Form.Group controlId="formEmail" className="reg-form-inputs">
               <Form.Label>Current Email: {profileEmail}</Form.Label>
-              <Form.Control className="input-font input-background" type="email" value={email} placeholder="update?" 
+              <Form.Control className="input-font input-background input-margin" type="email" value={email} placeholder="update?" 
                 onChange={e => setEmail(e.target.value)} />
                 {values.emailErr && <p>{values.emailErr}</p>}
             </Form.Group>
 
             <Form.Group controlId="formBirthday" className="reg-form-inputs">
               <Form.Label>Current Birthday: {profileBirthday}</Form.Label>
-              <Form.Control className="input-font input-background" type="date" name="birthday" onChange={e => setBirthday(e.target.value)} />
+              <Form.Control className="input-font input-background input-margin" type="date" name="birthday" onChange={e => setBirthday(e.target.value)} />
             </Form.Group>
             <Button variant="secondary" size="sm" type="submit" onClick={handleUpdate}>Submit</Button>
           </Form>
