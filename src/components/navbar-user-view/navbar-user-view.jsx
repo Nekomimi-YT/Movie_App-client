@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Container, Navbar, NavDropdown } from 'react-bootstrap';
 import { NavbarView } from '../navbar-view/navbar-view';
 import { setUser } from '../../actions/actions';
@@ -26,7 +27,7 @@ export class NavbarUserView extends React.Component {
      } 
    }*/
 
- onLoggedOut() {
+  onLoggedOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     localStorage.removeItem('email');
@@ -66,8 +67,8 @@ let mapStateToProps = state => {
   return { user: state.user }
 }
 
-//NavbarUserView.propTypes = {
- // onLoggedIn: PropTypes.func.isRequired
-//};
+NavbarUserView.propTypes = {
+ user: PropTypes.string.isRequired
+};
 
 export default connect(mapStateToProps, { setUser } )(NavbarUserView);
