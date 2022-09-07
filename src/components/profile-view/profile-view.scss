@@ -6,15 +6,15 @@
   background: whitesmoke !important;
 }
 
+h2 {
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 28px !important;
+}
+
 Form {
   margin-bottom: 20px;
   font-family: 'Montserrat', sans-serif;
   font-size: small;
-}
-
-h2 {
-  font-family: 'Montserrat', sans-serif !important;
-  font-size: 28px !important;
 }
 
 .input-font {
@@ -24,6 +24,10 @@ h2 {
 
 .input-background {
   background: whitesmoke !important;
+}
+
+.input-margin {
+  margin-bottom: 20px
 }
 
 .btn-link {
