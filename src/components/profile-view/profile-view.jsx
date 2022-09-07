@@ -7,6 +7,10 @@ import { Button, Card, Form } from 'react-bootstrap';
 import './profile-view.scss';
 
 export function ProfileView(props) {
+  const accessToken = localStorage.getItem('token');
+  const profileEmail = localStorage.getItem('email');
+  const profileBirthday = new Date(localStorage.getItem('birthday')).toString().substring(4, 15);
+
   const [ password, setPassword ] = useState('');
   let [ email, setEmail ] = useState('');
   let [ birthday, setBirthday ] = useState('');
@@ -15,10 +19,6 @@ export function ProfileView(props) {
     passwordErr: '',
     emailErr: ''
   });
-  
-  const accessToken = localStorage.getItem('token');
-  const profileEmail = localStorage.getItem('email');
-  const profileBirthday = new Date(localStorage.getItem('birthday')).toString().substring(4, 15);
   
   const validate = () => {
     let isReq = true;
