@@ -33,6 +33,5 @@ DirectorView.propTypes = {
       Bio: PropTypes.string.isRequired
     }).isRequired,
   directorList: PropTypes.array.isRequired,
-  onBackClick: PropTypes.func.isRequired,
-  
+  onBackClick: PropTypes.func.isRequired
 };
