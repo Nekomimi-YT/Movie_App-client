@@ -47,10 +47,11 @@ export class MainView extends React.Component {
   }
 
   onLoggedIn(authData) {
-    console.log(authData);
+    console.log(`MainView has received: ${authData}`);
     this.props.setUser({
         user: authData.user.Username
       });
+    location.reload();
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
     localStorage.setItem('email', authData.user.Email);
