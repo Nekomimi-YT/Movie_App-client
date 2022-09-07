@@ -6,7 +6,6 @@ import
     SET_MOVIES, 
     SET_USER, 
     SET_FAVMOV, 
-    DEL_FAVMOV 
   } from '../actions/actions';
 
 function visibilityFilter(state = '', action) {
@@ -36,11 +35,9 @@ function user(state = '', action) {
   }
 }
 
-function manageFavorites(state = '', action) { 
+function favorites(state = '', action) { 
   switch (action.type) {
     case SET_FAVMOV:
-      return action.value;
-    case DEL_FAVMOV:
       return action.value;
     default:
       return state;
@@ -51,7 +48,7 @@ const moviesApp = combineReducers({
   visibilityFilter,
   movies,
   user,
-  manageFavorites
+  favorites
 });
 
 export default moviesApp;
