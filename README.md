@@ -23,7 +23,7 @@ Users should be able to:
 * Returns data (image, description, genre, director and more) about a single movie to the user
 * Allows users to add a movie to their list of favorites
 
-## Login and Registraion views
+## Login and Registration views
 * Allows users to log in with a username and password
 * Allows new users to register (username, password, email, birthday)
 
@@ -56,4 +56,5 @@ Users should be able to:
 ### Image credits:
 * All movie images provided through the TMDB (The Movie Database API). 
 * "This product uses the TMDB API but is not endorsed or certified by TMDB."
-* ![LisFlix Movie App](/img/TheMovieDB.jpg)
+
+![LisFlix Movie App](/img/TheMovieDB.jpg)
