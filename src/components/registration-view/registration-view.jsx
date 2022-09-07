@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Row, Col, Container, Card, Form, Button } from 'react-bootstrap';
-//import { Link } from 'react-router-dom'
+import { Card, Form, Button } from 'react-bootstrap';
 import './registration-view.scss';
 
 export function RegistrationView() {
