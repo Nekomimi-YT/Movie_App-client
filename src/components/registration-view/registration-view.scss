@@ -17,44 +17,32 @@ h2 {
   font-size: 30px !important;
 }
 
-.input-background {
-  background: whitesmoke !important;
-}
-
-#formUsername {
-  margin-bottom: 15px;
-}
-
-#formPassword {
-  margin-bottom: 15px;
-}
-
-#formEmail {
-  margin-bottom: 15px;
-}
-
-#formBirthday {
-  margin-bottom: 25px;
-}
-
-Button {
-  color: white !important;
-}
-
 h6 {
   color: black !important;
   font-family: 'Montserrat', sans-serif !important;
   font-size: small !important;
 }
 
-.input-font {
-  font-family: 'Courier Prime', monospace;
-  font-size: 18px !important;
-}
-
 p {
   font-family: 'Courier Prime', monospace;
   font-size: small;
+}
+
+.input-background {
+  background: whitesmoke !important;
+}
+
+.input-margin {
+  margin-bottom: 20px
+}
+
+Button {
+  color: white !important;
+}
+
+.input-font {
+  font-family: 'Courier Prime', monospace;
+  font-size: 18px !important;
 }
 
 .btn-secondary {
