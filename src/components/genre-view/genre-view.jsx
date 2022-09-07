@@ -9,7 +9,6 @@ import './genre-view.scss';
 export class GenreView extends React.Component {
   render() {
     const { genre, genreList, onBackClick } = this.props;
-    console.log(genreList);
     return (
       <Card className="d-flex align-self-stretch m-2 box-shadow card-background">
         <div>
@@ -33,5 +32,6 @@ GenreView.propTypes = {
       Name: PropTypes.string.isRequired,
       Description: PropTypes.string.isRequired
     }).isRequired,
+  genreList: PropTypes.array.isRequired,
   onBackClick: PropTypes.func.isRequired
 };
