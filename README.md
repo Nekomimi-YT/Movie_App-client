@@ -1,4 +1,4 @@
-#### LisFlix Movie App 
+### LisFlix Movie App 
 
 ![LisFlix Movie App](/img/LisFlix.jpg)
 
@@ -10,7 +10,7 @@ Users should be able to:
 * Create a profile, login, update their profile or delete their profile
 * Access information on movies, directors, and genres
 * Filter movies by title
-* Add or delete movies from their favorites list
+* Add or delete movies from favorites list
 
 ## Key Features and Views
 
