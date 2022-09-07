@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Row, Card, Button } from 'react-bootstrap';
 import './movie-view.scss';
@@ -63,3 +64,24 @@ export class MovieView extends React.Component {
     );
   }
 }
+
+MovieView.propTypes = {
+  user: PropTypes.string.isRequired,
+  movie: PropTypes.shape({
+      ImagePath: PropTypes.string.isRequired,
+      Title: PropTypes.string.isRequired,
+      ReleaseYear: PropTypes.string.isRequired,
+      CriticRating: PropTypes.string.isRequired,
+      AudienceRating: PropTypes.string.isRequired,
+      Genre: PropTypes.shape({
+        Name: PropTypes.string.isRequired,
+        Description: PropTypes.string.isRequired,
+      }),
+      Director: PropTypes.shape({
+        Name: PropTypes.string.isRequired,
+        Bio: PropTypes.string.isRequired,
+      }),
+      Actors:PropTypes.array.isRequired
+    }).isRequired,
+  onBackClick: PropTypes.func.isRequired
+};
