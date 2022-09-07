@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { Container, Navbar, NavDropdown } from 'react-bootstrap';
 import { NavbarView } from '../navbar-view/navbar-view';
 import { setUser } from '../../actions/actions';
 
