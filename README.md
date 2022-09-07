@@ -1,6 +1,6 @@
 ### LisFlix Movie App 
 
-// IMAGE will go here--!
+![LisFlix Movie App](/img/LisFlix.jpg)
 
 ### Objective
 This project uses React, Redux and React-Bootstap to build the client-side UI for a movie information application. This application run on a previously built server-side REST API and NoSQL database.
@@ -56,4 +56,4 @@ Users should be able to:
 ### Image credits:
 * All movie images provided through the TMDB (The Movie Database API). 
 * "This product uses the TMDB API but is not endorsed or certified by TMDB."
-* Add Attribution Image here!
+* ![LisFlix Movie App](/img/TheMovieDB.jpg)
