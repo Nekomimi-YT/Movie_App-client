@@ -75,28 +75,28 @@ export function RegistrationView() {
       <Form>
         <Card.Title><h2>Sign-Up Here</h2></Card.Title>
       
-        <Form.Group controlId="formUsername" className="reg-form-inputs">
+        <Form.Group controlId="formUsername" className="reg-form-inputs input-margin">
           <Form.Label>*Username:</Form.Label>
           <Form.Control className="input-font input-background" type="text" value={username} 
             onChange={e => setUsername(e.target.value)} />
             {values.usernameErr && <p>{values.usernameErr}</p>}
         </Form.Group>
 
-        <Form.Group controlId="formPassword" className="reg-form-inputs">
+        <Form.Group controlId="formPassword" className="reg-form-inputs input-margin">
           <Form.Label>*Password:</Form.Label>
           <Form.Control className="input-font input-background" type="password" value={password} required 
             placeholder="Must contain at least 1 digit" onChange={e => setPassword(e.target.value)} />
             {values.passwordErr && <p>{values.passwordErr}</p>}
         </Form.Group>
 
-        <Form.Group controlId="formEmail" className="reg-form-inputs">
+        <Form.Group controlId="formEmail" className="reg-form-inputs input-margin">
           <Form.Label>*Email:</Form.Label>
           <Form.Control className="input-font input-background" type="email" value={email} 
             onChange={e => setEmail(e.target.value)} />
             {values.emailErr && <p>{values.emailErr}</p>}
         </Form.Group>
 
-        <Form.Group controlId="formBirthday" className="reg-form-inputs">
+        <Form.Group controlId="formBirthday" className="reg-form-inputs input-margin">
           <Form.Label>Birthday:</Form.Label>
           <Form.Control className="input-font input-background" type="date" name="birthday" 
             onChange={e => setBirthday(e.target.value)} />
