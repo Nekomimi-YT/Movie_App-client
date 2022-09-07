@@ -1,6 +1,7 @@
 // movie_api--client/src/main-view/main-view.jsx
 import React from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { Row, Col } from 'react-bootstrap';
@@ -138,6 +139,27 @@ export class MainView extends React.Component {
     ); 
   } 
 }
+
+MainView.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      ImagePath: PropTypes.string.isRequired,
+      Title: PropTypes.string.isRequired,
+      ReleaseYear: PropTypes.string.isRequired,
+      CriticRating: PropTypes.string.isRequired,
+      AudienceRating: PropTypes.string.isRequired,
+      Genre: PropTypes.shape({
+        Name: PropTypes.string.isRequired,
+        Description: PropTypes.string.isRequired,
+      }),
+      Director: PropTypes.shape({
+        Name: PropTypes.string.isRequired,
+        Bio: PropTypes.string.isRequired,
+      }),
+      Actors:PropTypes.array.isRequired
+    })).isRequired,
+  user: PropTypes.string.isRequired
+};
 
 let mapStateToProps = state => {
   return { 
