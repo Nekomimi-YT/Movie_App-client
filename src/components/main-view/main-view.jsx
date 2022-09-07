@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { Row, Col } from 'react-bootstrap';
 
-import { setMovies, setUser, setFavmov } from '../../actions/actions';
+import { setMovies, setUser } from '../../actions/actions';
 
 import MoviesList from '../movies-list/movies-list';
 import { LoginView } from '../login-view/login-view';
@@ -59,7 +59,7 @@ export class MainView extends React.Component {
   }
 
   render() {
-    let { user, movies, setFavmov } = this.props; 
+    let { user, movies } = this.props; 
 
     return (
       <Router>
@@ -138,6 +138,7 @@ export class MainView extends React.Component {
     ); 
   } 
 }
+
 let mapStateToProps = state => {
   return { 
     movies: state.movies,
@@ -146,4 +147,4 @@ let mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { setMovies, setUser, setFavmov} )(MainView);
+export default connect(mapStateToProps, { setMovies, setUser} )(MainView);
