@@ -5,7 +5,7 @@ import { Row, Col, Container, Card, Form, Button } from 'react-bootstrap';
 //import { Link } from 'react-router-dom'
 import './registration-view.scss';
 
-export function RegistrationView(props) {
+export function RegistrationView() {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
   const [ email, setEmail ] = useState('');
@@ -79,26 +79,30 @@ export function RegistrationView(props) {
         <Card.Title><h2>Sign-Up Here</h2></Card.Title>
         <p />
         <Form.Group controlId="formUsername" className="reg-form-inputs">
-          <Form.Label>Username:</Form.Label>
-          <Form.Control className="input-font input-background" type="text" value={username} onChange={e => setUsername(e.target.value)} />
+          <Form.Label>*Username:</Form.Label>
+          <Form.Control className="input-font input-background" type="text" value={username} 
+            onChange={e => setUsername(e.target.value)} />
             {values.usernameErr && <p>{values.usernameErr}</p>}
         </Form.Group>
 
         <Form.Group controlId="formPassword" className="reg-form-inputs">
-          <Form.Label>Password:</Form.Label>
-          <Form.Control className="input-font input-background" type="password" value={password} onChange={e => setPassword(e.target.value)} />
-          {values.passwordErr && <p>{values.passwordErr}</p>}
+          <Form.Label>*Password:</Form.Label>
+          <Form.Control className="input-font input-background" type="password" value={password} required 
+            placeholder="Must contain at least 1 digit" onChange={e => setPassword(e.target.value)} />
+            {values.passwordErr && <p>{values.passwordErr}</p>}
         </Form.Group>
 
         <Form.Group controlId="formEmail" className="reg-form-inputs">
-          <Form.Label>Email:</Form.Label>
-          <Form.Control className="input-font input-background" type="email" value={email} onChange={e => setEmail(e.target.value)} />
-          {values.emailErr && <p>{values.emailErr}</p>}
+          <Form.Label>*Email:</Form.Label>
+          <Form.Control className="input-font input-background" type="email" value={email} 
+            onChange={e => setEmail(e.target.value)} />
+            {values.emailErr && <p>{values.emailErr}</p>}
         </Form.Group>
 
         <Form.Group controlId="formBirthday" className="reg-form-inputs">
           <Form.Label>Birthday:</Form.Label>
-          <Form.Control className="input-font input-background" type="date" name="birthday" onChange={e => setBirthday(e.target.value)} />
+          <Form.Control className="input-font input-background" type="date" name="birthday" 
+            onChange={e => setBirthday(e.target.value)} />
         </Form.Group>
 
         <Button variant="secondary" size="sm" type="submit" onClick={handleSubmit}>
