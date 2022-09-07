@@ -9,7 +9,6 @@ import './director-view.scss';
 export class DirectorView extends React.Component {
   render() {
     const { director, directorList, onBackClick } = this.props;
-    console.log(directorList);
     return (
       <Card className="d-flex align-self-stretch m-2 box-shadow card-background">
         <div>
@@ -33,5 +32,7 @@ DirectorView.propTypes = {
       Name: PropTypes.string.isRequired,
       Bio: PropTypes.string.isRequired
     }).isRequired,
-  onBackClick: PropTypes.func.isRequired
+  directorList: PropTypes.array.isRequired,
+  onBackClick: PropTypes.func.isRequired,
+  
 };
