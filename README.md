@@ -48,7 +48,7 @@ Users should be able to:
 * Provides dropdown navigation to profile, favorites views and the option to log out
 
 ## Technical Details
-* React ^17.0
+* React ^18.2.0 (Note: reverted to version 17 due to utilization of `render();`)
 * React-Bootstrap ^2.5.0
 * Redux ^4.0.0
 * Parcel ^2.0.0
