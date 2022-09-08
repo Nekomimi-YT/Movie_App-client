@@ -1,4 +1,4 @@
-### LisFlix Movie App 
+# LisFlix Movie App 
 
 ![LisFlix Movie App](/img/LisFlix.jpg)
 
@@ -14,36 +14,36 @@ Users should be able to:
 
 ## Key Features and Views
 
-# Main view
+### Main view
 * Returns a list of ALL movies to the user (each listed item with an image and brief information)
 * Displays text input that filters movies by title
 * Offers functionality to select a movie for more details
 
-# Single movie view
+### Single movie view
 * Returns data (image, description, genre, director and more) about a single movie to the user
 * Allows users to add a movie to their list of favorites
 
-# Login and Registration views
+### Login and Registration views
 * Allows users to log in with a username and password
 * Allows new users to register (username, password, email, birthday)
 
-# Genre view
+### Genre view
 * Returns data about a genre, with a name and description
 * Displays example movies
 
-# Director view
+### Director view
 * Returns data about a director (name, bio, birth year, death year)
 * Displays example movies
 
-# Profile view
+### Profile view
 * Allows users to view and update their user info (password, email, date of birth)
 * Allows existing users to delete their profile
 
-# Favorites view
+### Favorites view
 * Displays favorite movies
 * Allows users to remove a movie from their list of favorites
 
-# Navbar View
+### Navbar View
 * Updates to greet the user by username when user is logged in
 * Provides dropdown navigation to profile, favorites views and the option to log out
 
