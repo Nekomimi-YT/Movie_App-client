@@ -69,4 +69,4 @@ LoginView.propTypes = {
   onLoggedIn: PropTypes.func.isRequired
 };
 
-export default connect(mapStateToProps, { setUser } )(LoginView);
+export default connect(mapStateToProps, {setUser} )(LoginView);
