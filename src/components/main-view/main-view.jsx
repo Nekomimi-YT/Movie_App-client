@@ -51,12 +51,15 @@ export class MainView extends React.Component {
     this.props.setUser({
         user: authData.user.Username
       });
-    location.reload();
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
     localStorage.setItem('email', authData.user.Email);
     localStorage.setItem('birthday', authData.user.Birthday);
     localStorage.setItem('favorites', authData.user.favoriteMovies);
+    // instead of location.reload() - initiating setUser action again with localStorage
+    this.props.setUser({
+      user: localStorage.getItem('user')
+    });
     this.getMovies(authData.token);
   }
 
@@ -159,15 +162,14 @@ MainView.propTypes = {
       }),
       Actors:PropTypes.array.isRequired
     })).isRequired,
-  user: PropTypes.string.isRequired
+  user: PropTypes.string
 };
 
 let mapStateToProps = state => {
   return { 
     movies: state.movies,
-    user: state.user,
-    favorites: state.favorites
+    user: state.user
   };
 };
 
-export default connect(mapStateToProps, { setMovies, setUser} )(MainView);
+export default connect(mapStateToProps, { setMovies, setUser } )(MainView);
