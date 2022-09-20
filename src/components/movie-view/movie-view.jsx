@@ -2,10 +2,18 @@ import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Row, Card, Button } from 'react-bootstrap';
 import './movie-view.scss';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 export class MovieView extends React.Component {
+  constructor (props) {
+    super (props);
+    this.state = {
+      buttonClicked: false
+    }
+  }
 
   addFavorite(user, movie) {
     const accessToken = localStorage.getItem('token');
@@ -20,6 +28,7 @@ export class MovieView extends React.Component {
     .then(response => {
       const data = response.data
       localStorage.setItem('favorites', data.favoriteMovies);
+      this.setState ({ buttonClicked: true});
       alert('Movie has been added to your favorites!');
     })
     .catch(error => {
@@ -30,6 +39,8 @@ export class MovieView extends React.Component {
 
   render() {
     const { user, movie, onBackClick } = this.props;
+    const { buttonClicked } = this.state;
+    const element = <FontAwesomeIcon icon={faHeart} />
     return ( 
         <Card className= "m-2 box-shadow card-background">
           <div>
@@ -40,8 +51,12 @@ export class MovieView extends React.Component {
           <Row className="d-flex flex-column align-items-center mt-3 mr-1 ml-1 }">
             <Card.Title>
               <h2>{ movie.Title } { movie.ReleaseYear }</h2>
-              <Button variant="secondary" size="sm" className="mt-2 mb-1" onClick={() => { this.addFavorite(user, movie); }}>Me Like!</Button>
-            </Card.Title>
+              {buttonClicked ? (
+                <Button size="sm" variant="danger" className="mt-2 mb-1 liked">{element} Liked!</Button>
+              ) : 
+              <Button size="sm" variant="secondary" className="mt-2 mb-1" onClick={() => { this.addFavorite(user, movie); }}>{element} Like</Button>
+              }
+              </Card.Title>
             <Card.Text>Starring: { movie.Actors }</Card.Text>
             </Row>
             <Row className="d-flex flex-column align-items-center mt-3 mr-1 ml-1">
