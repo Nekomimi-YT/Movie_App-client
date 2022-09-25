@@ -29,7 +29,6 @@ export class MovieView extends React.Component {
       const data = response.data
       localStorage.setItem('favorites', data.favoriteMovies);
       this.setState ({ buttonClicked: true});
-      alert('Movie has been added to your favorites!');
     })
     .catch(error => {
       console.log(error);
