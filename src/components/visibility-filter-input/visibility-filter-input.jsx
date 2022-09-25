@@ -11,6 +11,7 @@ function VisibilityFilterInput(props) {
     onChange={e => props.setFilter(e.target.value)}
     value={props.visibilityFilter}
     placeholder="Search"
+    className="input-focus input-focus-border-color"  //https://getbootstrap.com/docs/5.1/forms/form-control/
   />;
 }
 
