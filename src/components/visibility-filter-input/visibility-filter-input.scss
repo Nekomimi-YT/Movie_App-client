@@ -1,9 +1,5 @@
-.input-focus-border-color {  //added :focus, but no change from blue
-  border-color: #DF2073 !important;
-  box-shadow: none !important;  //https://stackoverflow.com/questions/69991702/change-the-border-color-of-reactstrap-input-component
-}
-
 .input-focus:focus {  
   border-color: #DF2073 !important;
+  border-width: 2px !important;
   box-shadow: none !important;  //https://stackoverflow.com/questions/69991702/change-the-border-color-of-reactstrap-input-component
 }
