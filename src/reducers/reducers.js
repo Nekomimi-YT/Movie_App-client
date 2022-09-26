@@ -29,7 +29,7 @@ function user(state = '', action) {
   switch (action.type) {
     case SET_USER:
       return action.value || localStorage.getItem('user');
-    default:
+    default: 
       return state;
   }
 }
