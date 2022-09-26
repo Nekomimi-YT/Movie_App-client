@@ -8,6 +8,19 @@ import { FavMovieCard } from '../fav-movie-card/fav-movie-card';
 import './favorites-view.scss';
 
 export class FavoritesView extends React.Component {
+  constructor (props) {
+    super (props);
+    this.state = {
+      favorites: localStorage.getItem('favorites').split(',')
+    }
+  }
+
+  /*componentDidMount() {
+    const { favorites } = this.state;
+    if (favorites !== localStorage.getItem('favorites').split(',')) {
+      this.setState ({favorites: localStorage.getItem('favorites').split(',')});
+    }
+  }*/
 
   deleteFavorite(user, movieID) {
     const accessToken = localStorage.getItem('token');
@@ -29,9 +42,10 @@ export class FavoritesView extends React.Component {
 
   render() {
     const { movies, onBackClick } = this.props;
-    const favMovies = localStorage.getItem('favorites').split(',');
+    //const favMovies = localStorage.getItem('favorites').split(',');
+    const { favorites } = this.state;
 
-    if (favMovies == '')  {
+    if (favorites == '')  {
       return (
         <Card className="d-flex align-self-stretch m-2 box-shadow card-background">
           <div>
@@ -40,7 +54,7 @@ export class FavoritesView extends React.Component {
           <Card.Body>
             <Card.Title><h2>Favorites List</h2></Card.Title>
             <hr />
-            <Card.Text><p>Oh noooes! You have no favorite movies yet!</p>
+            <Card.Text>Oh noooes! You have no favorite movies yet!
             </Card.Text>
           </Card.Body>
         </Card>
@@ -58,7 +72,7 @@ export class FavoritesView extends React.Component {
             button to remove a movie from your favorites list.</Card.Text>
           <Row className="d-flex">
             {movies
-            .filter(movie => favMovies.includes(movie._id))
+            .filter(movie => favorites.includes(movie._id))
             .map(m => (
               <Col md={6} key={m._id}>
                 <FavMovieCard favMovie={m} deleteFavorite={this.deleteFavorite}/>
