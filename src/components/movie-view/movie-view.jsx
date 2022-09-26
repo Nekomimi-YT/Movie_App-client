@@ -15,6 +15,14 @@ export class MovieView extends React.Component {
     }
   }
 
+  componentDidMount () {
+    const favMovies = localStorage.getItem('favorites').split(',');
+    const { movie } = this.props;
+    if (favMovies.includes(movie._id)) {
+      this.setState ({ buttonClicked: true });
+    }
+  }
+
   addFavorite(user, movie) {
     const accessToken = localStorage.getItem('token');
     axios.post(`https://myflix-movieapp-bylisa.herokuapp.com/users/${user}/movies/${movie._id}`, 
@@ -39,7 +47,7 @@ export class MovieView extends React.Component {
   render() {
     const { user, movie, onBackClick } = this.props;
     const { buttonClicked } = this.state;
-    const element = <FontAwesomeIcon icon={faHeart} />
+    const element = <FontAwesomeIcon icon={faHeart} />;
     return ( 
         <Card className= "m-2 box-shadow card-background">
           <div>
