@@ -10,10 +10,7 @@ import './favorites-view.scss';
 export class FavoritesView extends React.Component {
 
   deleteFavorite(user, movieID) {
-    console.log(user);
     const accessToken = localStorage.getItem('token');
-    console.log(accessToken); 
-    console.log(movieID); 
     axios.delete(`https://myflix-movieapp-bylisa.herokuapp.com/users/${user}/movies/${movieID}`, 
       {
         headers: { Authorization: `Bearer ${accessToken}` }
@@ -21,9 +18,6 @@ export class FavoritesView extends React.Component {
     )
     .then(() => {
       const favMovies = localStorage.getItem('favorites').split(',');
-      console.log (favMovies);
-      console.log(movieID); 
-      console.log(favMovies.filter(item => item != movieID))
       localStorage.setItem('favorites', favMovies.filter(item => item != movieID));
       alert('Movie removed from favorites');
       location.reload(false);
@@ -37,7 +31,6 @@ export class FavoritesView extends React.Component {
   render() {
     const { movies, onBackClick } = this.props;
     const favMovies = localStorage.getItem('favorites').split(',');
-    console.log(movies.filter(movie => favMovies.includes(movie._id)));
 
     if (favMovies == '')  {
       return (
