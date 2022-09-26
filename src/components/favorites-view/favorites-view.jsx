@@ -19,12 +19,11 @@ export class FavoritesView extends React.Component {
     .then(() => {
       const favMovies = localStorage.getItem('favorites').split(',');
       localStorage.setItem('favorites', favMovies.filter(item => item != movieID));
-      alert('Movie removed from favorites');
       location.reload(false);
     })
     .catch(error => {
       console.log(error);
-      alert('Movie removed from favorites');
+      alert('Oops! Something went wrong!');
     })
   }
 
