@@ -59,7 +59,7 @@ export class MovieView extends React.Component {
             <Card.Title>
               <h2>{ movie.Title } { movie.ReleaseYear }</h2>
               {buttonClicked ? (
-                <Button size="sm" variant="danger" className="mt-2 mb-1 liked">{element} Liked!</Button>
+                <Button size="sm" variant="danger" className="mt-2 mb-1 liked" disabled>{element} Liked!</Button>
               ) : 
               <Button size="sm" variant="secondary" className="mt-2 mb-1" onClick={() => { this.addFavorite(user, movie); }}>{element} Like</Button>
               }
