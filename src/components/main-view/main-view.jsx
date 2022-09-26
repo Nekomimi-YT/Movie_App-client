@@ -29,9 +29,9 @@ export class MainView extends React.Component {
   componentDidMount() {
     let accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
-      this.props.setUser({
-        user: localStorage.getItem('user')
-      });
+     this.props.setUser({
+      user: localStorage.getItem('user')
+     });
       this.getMovies(accessToken);
     }
   }
@@ -47,7 +47,7 @@ export class MainView extends React.Component {
   }
 
   onLoggedIn(authData) {
-    console.log(`MainView has received: ${authData}`);
+    console.log(`MainView has received: ${JSON.stringify(authData)}`);
     this.props.setUser({
         user: authData.user.Username
       });
@@ -56,7 +56,6 @@ export class MainView extends React.Component {
     localStorage.setItem('email', authData.user.Email);
     localStorage.setItem('birthday', authData.user.Birthday);
     localStorage.setItem('favorites', authData.user.favoriteMovies);
-    // instead of location.reload() - initiating setUser action again with localStorage
     this.props.setUser({
       user: localStorage.getItem('user')
     });
