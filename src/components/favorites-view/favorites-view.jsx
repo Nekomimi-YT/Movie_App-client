@@ -15,13 +15,6 @@ export class FavoritesView extends React.Component {
     }
   }
 
-  /*componentDidMount() {
-    const { favorites } = this.state;
-    if (favorites !== localStorage.getItem('favorites').split(',')) {
-      this.setState ({favorites: localStorage.getItem('favorites').split(',')});
-    }
-  }*/
-
   deleteFavorite(user, movieID) {
     const accessToken = localStorage.getItem('token');
     axios.delete(`https://myflix-movieapp-bylisa.herokuapp.com/users/${user}/movies/${movieID}`, 
