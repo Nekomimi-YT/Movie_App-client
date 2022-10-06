@@ -12,9 +12,9 @@ export class FavMovieCard extends React.Component {
     const movieID = favMovie._id;
 
     return (
-      <Card className="d-flex align-self-stretch m-1 box-shadow card-background">
-        <Card.Body className="card-text-align">
-          <Card.Img className="mb-3" style={{width: 160}} src={ favMovie.ImagePath } crossOrigin="anonymous"/>
+      <Card className="d-flex self-align-stretch m-1 box-shadow card-background height">
+        <Card.Body className="text-center">
+          <Card.Img className="mb-3 width" src={ favMovie.ImagePath } crossOrigin="anonymous"/>
           <Card.Title><h2>{ favMovie.Title }</h2></Card.Title>
           <Card.Text>{ favMovie.ReleaseYear }</Card.Text>
           <Card.Text>{ favMovie.Genre.Name }</Card.Text>
