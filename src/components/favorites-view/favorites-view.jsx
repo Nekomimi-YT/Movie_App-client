@@ -35,7 +35,6 @@ export class FavoritesView extends React.Component {
 
   render() {
     const { movies, onBackClick } = this.props;
-    //const favMovies = localStorage.getItem('favorites').split(',');
     const { favorites } = this.state;
 
     if (favorites == '')  {
