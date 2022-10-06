@@ -53,7 +53,7 @@ export class MovieView extends React.Component {
           <div>
             <Button variant="link" onClick={() => { onBackClick(); }}>{'<<'} Back</Button>
           </div>
-          <Card.Body className="card-text-align">
+          <Card.Body className="text-center">
           <Card.Img className="m-auto image-size" src={ movie.ImagePath } crossOrigin="anonymous"/>
           <Row className="d-flex flex-column align-items-center mt-3 mr-1 ml-1 }">
             <Card.Title>
