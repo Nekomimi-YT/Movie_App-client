@@ -12,7 +12,7 @@ export class FavMovieCard extends React.Component {
     const movieID = favMovie._id;
 
     return (
-      <Card className="d-flex self-align-stretch m-1 box-shadow card-background height">
+      <Card className="d-flex m-1 box-shadow card-background height">
         <Card.Body className="text-center">
           <Card.Img className="mb-3 width" src={ favMovie.ImagePath } crossOrigin="anonymous"/>
           <Card.Title><h2>{ favMovie.Title }</h2></Card.Title>
