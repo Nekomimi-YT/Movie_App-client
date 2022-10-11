@@ -33,5 +33,6 @@
     "redux-devtools-extension": "^2.13.9"
   },
   "devDependencies": {
+    "@parcel/transformer-sass": "^2.7.0"
   }
 }
