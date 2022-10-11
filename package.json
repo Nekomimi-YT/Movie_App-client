@@ -10,6 +10,7 @@
     "url": "git+https://github.com/Nekomimi-YT/Movie_App-client.git"
   },
   "author": "",
+  "alias": { "process": false },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Nekomimi-YT/Movie_App-client/issues"
