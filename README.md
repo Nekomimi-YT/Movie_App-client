@@ -51,7 +51,8 @@ Users should be able to:
 * React ^18.2.0 (Note: reverted to version 17 due to utilization of `render();`)
 * React-Bootstrap ^2.5.0
 * Redux ^4.0.0
-* Parcel ^2.0.0
+* Parcel ^2.7.0
+* Axios ^1.1.2
 
 ## Image credits:
 * All movie images provided through the TMDB (The Movie Database API). 
