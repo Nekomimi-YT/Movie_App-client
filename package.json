@@ -11,10 +11,10 @@
   },
   "author": "",
   "alias": {
-		"process": {
-			"global": "{}"
-		}
-	},
+    "process": {
+      "global": "{}"
+    }
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Nekomimi-YT/Movie_App-client/issues"
@@ -38,6 +38,7 @@
     "redux-devtools-extension": "^2.13.9"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.7.0"
+    "@parcel/transformer-sass": "^2.7.0",
+    "parcel-reporter-static-files-copy": "^1.4.0"
   }
 }
